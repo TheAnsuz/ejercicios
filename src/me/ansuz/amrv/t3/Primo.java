@@ -26,10 +26,9 @@ public class Primo {
             if (num % i == 0) {
                 primo = false;
                 valor = i;
-                break;
             }
             i++;
-        } while (i < Math.sqrt(num)+1);
+        } while (i < Math.sqrt(num)+1 && primo);
         
         if (primo)
             System.out.println("El numero " + num + " es primo");

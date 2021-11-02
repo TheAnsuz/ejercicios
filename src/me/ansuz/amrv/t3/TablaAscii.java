@@ -13,8 +13,11 @@ public class TablaAscii {
     
     public static void main(String[] args) {
         
-        for (int i = 0; i < 129; i++)
-            System.out.println(i + ":" + (char) i);
+        int index = 0;
+        while (index < 129) {
+            System.out.println(index + ":" + (char) index);
+             index++;
+        }
         
     }
 }

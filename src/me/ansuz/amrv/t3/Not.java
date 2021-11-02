@@ -16,7 +16,7 @@ public class Not {
 
     public static void main(String[] args) {
 
-        System.out.println("Escribe el numero binario de 8 bits para invertir");
+        System.out.println("Debes escribir un numero binario de 8 bits, ejemplo 00100100");
 
         // Declaración de variables
         String binario = "";

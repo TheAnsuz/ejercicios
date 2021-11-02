@@ -15,14 +15,13 @@ public class Quiniela {
     public static void main(String[] args) {
 
         Random rng = new Random();
-
         for (int y = 0; y < 14; y++) {
-            System.out.print("Columna " + (y+1) + " \t");
+            System.out.print("Entrada " + (y + 1) + " \t");
 
             for (int x = 0; x < 10; x++) {
                 int val = rng.nextInt(3);
                 String resultado = "\t";
-                
+
                 switch (val) {
                     case 0:
                         resultado += " 1 - - ";
@@ -34,12 +33,12 @@ public class Quiniela {
                         resultado += " - - 2 ";
                         break;
                     default:
-                        resultado += " - - - ";   
+                        resultado += " - - - ";
                 }
-                
+
                 System.out.print(resultado);
             }
-            
+
             System.out.println();
         }
 

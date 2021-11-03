@@ -49,6 +49,8 @@ public class Marco {
         for (int x = 0; x < base; x++)
             System.out.print(letra + " ");
         System.out.println();
+        
+        // Bordes laterales
         for (int y = 1; y < altura-1; y++) {
             System.out.print(letra + " ");
             for (int s = 1; s < base-1; s++)

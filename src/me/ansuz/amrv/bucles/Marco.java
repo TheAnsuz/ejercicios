@@ -61,7 +61,7 @@ public class Marco {
         // Borde inferior
         for (int x = 0; x < base; x++)
             System.out.print(letra + " ");
-        
+        System.out.println();
     }
     
 }

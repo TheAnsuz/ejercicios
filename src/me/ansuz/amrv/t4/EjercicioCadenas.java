@@ -43,7 +43,7 @@ public class EjercicioCadenas {
             int index = texto.indexOf(encontrar);
             indexAnterior += index+1;
             ocurrencias++;
-            posicionOcurrencias += indexAnterior + ", ";
+            posicionOcurrencias += indexAnterior + " ";
             texto = texto.substring(index + 1);
         }
 

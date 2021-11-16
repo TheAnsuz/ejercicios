@@ -11,31 +11,32 @@ import java.util.Scanner;
  * @author marruiad
  */
 public class MasLarga {
-    
+
     private static final Scanner scan = new Scanner(System.in);
+
     public static void main(String[] args) {
-        
+
         String fraseActual = "";
         String fraseMayor = "";
         int longitudMayor = 0;
-        
+
         do {
-            System.out.println("Introduce la frase para comparar (o escribe \"terminar\" para mostrar la frase mas larga)");
+            System.out.println("Introduce la frase para comparar o dejalo vacio para terminar");
             fraseActual = scan.nextLine().trim();
-            
-            if (fraseActual.length() <= 0)
-                System.out.println("La frase que has introducido no es valida ya que no contiene texto");
-            else {
-                if (longitudMayor < fraseActual.length()) {
-                    fraseMayor = fraseActual;
-                    longitudMayor = fraseActual.length();
-                }
+
+            if (longitudMayor < fraseActual.length()) {
+                fraseMayor = fraseActual;
+                longitudMayor = fraseActual.length();
             }
-            
-        } while (!fraseActual.equalsIgnoreCase("terminar"));
-        
+
+        } while (fraseActual.length() > 0);
+
+        if (longitudMayor > 0){
         System.out.println("La frase mas larga es:");
         System.out.println(fraseMayor + "(" + longitudMayor + ")");
+        }
+        else
+            System.out.println("No has introducido ninguna frase por lo cual no hay resultado");
     }
-    
+
 }

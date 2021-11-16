@@ -11,30 +11,31 @@ import java.util.Scanner;
  * @author marruiad
  */
 public class Ordenar {
-    
+
     private static final Scanner scan = new Scanner(System.in);
+
     public static void main(String[] args) {
         String[] palabras = new String[0];
         String resultado = "";
         String anterior = "";
-        
+
         System.out.println("Introduce las palabras separadas por espacio para ordenar");
         palabras = scan.nextLine().split(" ");
-        
+
+
         // Ordenar y eliminar las cadenas vacías
-        for(int i = 0; i < palabras.length; i++) {
+        for (int i = 0; i < palabras.length; i++) {
+            // comprueba que solo se formatea lo que no este vacio
             if (!palabras[i].equals("")) {
-            
-                if (anterior.equals(""))
-                    anterior = palabras[i];
-                else {
-                    resultado += (anterior.compareTo(palabras[i]) < 0) ? palabras[i] + " " + anterior : anterior + " " + palabras[i];
-                    anterior = palabras[i];
-                }
-            }    
+
+                    if (palabras[i].compareToIgnoreCase(anterior) < 0)
+                        resultado = palabras[i] + " " + resultado;
+                    else
+                        resultado =  resultado + " " + palabras[i];
+                anterior = palabras[i];
+            }
         }
-        
         System.out.println(resultado);
     }
-    
+
 }

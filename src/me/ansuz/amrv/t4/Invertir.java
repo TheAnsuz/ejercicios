@@ -14,11 +14,12 @@ public class Invertir {
     
     private static final Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
-        String texto = "";
+        String texto;
         String inverso = "";
         
         System.out.println("Por favor escribe el texto a invertir");
         texto = scan.nextLine();
+        
         
         for (int i = 0; i < texto.length(); i++) {
             char c = texto.charAt(i);

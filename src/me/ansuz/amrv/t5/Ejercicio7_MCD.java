@@ -22,7 +22,7 @@ public class Ejercicio7_MCD {
         do {
 
             try {
-                System.out.println("Introduce dos numeros enteros positivos, el primero debe ser mayor que el segundo");
+                System.out.println("Introduce dos numeros enteros positivos");
                 System.out.print("Introduce el primer numero ");
                 a = Integer.parseInt(scan.nextLine());
                 System.out.print("Introduce el segundo numero ");

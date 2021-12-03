@@ -20,7 +20,6 @@ public class Ejercicio7_MCD {
         int b = 0;
         boolean valido = false;
         do {
-
             try {
                 System.out.println("Introduce dos numeros enteros positivos");
                 System.out.print("Introduce el primer numero ");
@@ -48,13 +47,11 @@ public class Ejercicio7_MCD {
         int mayor = a;
         int menor = b;
         do {
-
             int resto = mayor % menor;
             if (resto != 0) {
                 mayor = menor;
                 menor = resto;
             }
-
         } while (mayor % menor != 0);
         return menor;
     }

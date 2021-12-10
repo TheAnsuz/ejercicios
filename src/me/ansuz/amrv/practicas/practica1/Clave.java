@@ -89,5 +89,14 @@ public class Clave {
         
         return clave.substring(0, size);
     }
+    
+    public static int obtenerNivelSeguridad(String password) {
+        if (password.length() <= 6)
+            return 1;
+        else
+            if (Operador.contieneMayusculas(password) &&
+                    Operador.contieneMinusculas(password) &&
+                    Operador)
+    }
 
 }

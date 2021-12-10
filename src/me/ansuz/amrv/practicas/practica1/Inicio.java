@@ -4,7 +4,7 @@
  */
 package me.ansuz.amrv.practicas.practica1;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -25,13 +25,12 @@ public class Inicio {
         String segundoApellidoOriginal = "";
         // Segundo apellido modificado para que se pueda usar en las operaciones internas
         String segundoApellidoNormalizado = "";
-
         // Clave que se obtendrá con los datos normalizados del usuario
         String clave = "";
         // Valor numerico del DNI
         int dni = 0;
         // Fecha de nacimiento del usuario
-        Date nacimiento;
+        LocalDate nacimiento;
 
         System.out.println("Programa para generar contrasñeas dado el nombre");
         System.out.println("================================================");
@@ -82,9 +81,7 @@ public class Inicio {
         dni = EntradaDatos.getNumber("Introduce tu DNI: ", 8, 8);
 
         // Obtencion de la fecha de nacimiento del usuario
-        System.out.println("");
-        
-        System.out.println("================================================");
+        nacimiento = EntradaDatos.getDate("Introduce tu fecha de nacimiento (dia/mes/año)");
         
         // Generacion de la clave
         clave = segundoApellidoNormalizado.substring(0, 2)
@@ -97,6 +94,7 @@ public class Inicio {
         System.out.println("Apellidos: " + primerApellidoOriginal + " " + segundoApellidoOriginal);
         System.out.println("DNI: " + dni + ' ' + Operador.generarLetraDni(dni));
         System.out.println("Clave: " + clave);
+        System.out.println("Fecha de nacimiento: " + nacimiento);
         System.out.println("=======================================");
     }
 

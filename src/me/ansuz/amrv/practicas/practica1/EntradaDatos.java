@@ -41,13 +41,13 @@ public class EntradaDatos {
 
             // Comprobar que todos las letras son alfanumericas
             for (int c = 0; c < texto.length(); c++) {
-                
+
                 if (!Character.isAlphabetic(texto.charAt(c))) {
                     if (texto.charAt(c) != 'ñ' && texto.charAt(c) != 'Ñ' && texto.charAt(c) != ' ') {
-                    valido = false;
+                        valido = false;
                         System.out.println("El texto no puede contener caracteres especiales");
-                    break; 
-                    
+                        break;
+
                     }
                 }
 
@@ -61,7 +61,7 @@ public class EntradaDatos {
         String texto = "";
         do {
             System.out.println(enunciado);
-            texto = scan.nextLine().replaceAll(" ", "").replaceAll("\t", "").toLowerCase();
+            texto = scan.nextLine().replaceAll("\\s", "").toLowerCase();
             switch (texto) {
                 case "s":
                 case "si":
@@ -95,7 +95,10 @@ public class EntradaDatos {
             } else {
                 try {
                     numero = Integer.parseInt(entrada);
-                    valido = true;
+                    if (numero > 0)
+                        valido = true;
+                    else
+                        System.out.println("El DNI no puede ser un numero negativo");
                 } catch (Exception e) {
                     System.out.println("El valor introducido debe de ser numerico");
                 }

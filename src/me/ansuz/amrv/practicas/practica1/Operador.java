@@ -71,7 +71,7 @@ public class Operador {
         return resultado;
     }
 
-    public static boolean contieneSimbolos(final String texto) {
+    public static boolean contieneSimbolos(String texto) {
         for (int i = 0; i < texto.length(); i++) {
             char c = texto.charAt(i);
             if (c > 32 && c < 48)
@@ -82,6 +82,27 @@ public class Operador {
         return false;
     }
 
+    public static boolean contieneMayusculas(String texto) {
+        for (int i = 0; i < texto.length(); i++)
+            if (Character.isUpperCase(texto.charAt(i)))
+                return true;
+        return false;
+    }
+
+    public static boolean contieneMinusculas(String texto) {
+        for (int i = 0; i < texto.length(); i++)
+            if (Character.isLowerCase(texto.charAt(i)))
+                return true;
+        return false;
+    }
+
+    public static boolean contieneNumeros(String texto) {
+        for (int i = 0; i < texto.length(); i++)
+            if (Character.isDigit(texto.charAt(i)))
+                return true;
+        return false;
+    }
+
     public static String normalizarTexto(String texto, int minCaracteres) {
         String normalizado = texto.replaceAll(" ", "").replaceAll("\t", "");
         while (normalizado.length() < minCaracteres) {
@@ -89,11 +110,11 @@ public class Operador {
         }
         return normalizado.toLowerCase();
     }
-    
+
     public static String formatearTexto(String texto) {
         String formateado = "";
         for (int i = 0; i < texto.length(); i++) {
-            if (i == 0 || Character.isWhitespace(texto.charAt(i-1)))
+            if (i == 0 || Character.isWhitespace(texto.charAt(i - 1)))
                 formateado += Character.toUpperCase(texto.charAt(i));
             else
                 formateado += Character.toLowerCase(texto.charAt(i));

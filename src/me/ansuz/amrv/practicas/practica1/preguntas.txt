@@ -1,3 +1,4 @@
 Se puede usar un while(true) con returns para validar datos (EntradaDatos > getBoolean())
 Deben los DNI de tener la posibilidad de empezar por 0
 Se puden usar los break y continue dentro de bucles
+debe de haber una clave poco segura, segura y muy segura o debe de ser resultado aleatorio

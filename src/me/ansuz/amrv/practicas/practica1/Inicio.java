@@ -89,22 +89,24 @@ public class Inicio {
 
         // Obtencion de la fecha de nacimiento del usuario
         nacimiento = EntradaDatos.getDate("Introduce tu fecha de nacimiento (dia/mes/año)", new GregorianCalendar());
-        
+
         // Generacion de las claves
         Random rnd = new Random(); // Generador de dimensiones de claves
         clave = segundoApellidoNormalizado.substring(0, 2)
                 + primerApellidoNormalizado.substring(0, 2)
                 + nombreNormalizado.substring(0, 3);
-        claveMecanica = Clave.generarMecanica(rnd.nextInt(4)+4);
-        claveSecure = Clave.generarSecureRandom(rnd.nextInt(4)+4);
-        claveIdeal = Clave.generarIdeal(rnd.nextInt(4)+4, nombreOriginal, primerApellidoOriginal, dni, nacimiento.getTime());
-        
+        claveMecanica = Clave.generarMecanica(rnd.nextInt(4) + 4);
+        claveSecure = Clave.generarSecureRandom(rnd.nextInt(4) + 4);
+
+        claveIdeal = Clave.generarIdeal(rnd.nextInt(4) + 4, nombreOriginal, primerApellidoOriginal, dni, nacimiento.getTime());
+
         // Imprimir datos de usuario
         System.out.println("=======Usuario=========================");
         System.out.println("Nombre: " + nombreOriginal);
         System.out.println("Apellidos: " + primerApellidoOriginal + " " + segundoApellidoOriginal);
         System.out.println("DNI: " + dni + ' ' + Operador.generarLetraDni(dni));
         System.out.println("Usuario: " + clave);
+        System.out.println("Fecha de nacimiento: " + nacimiento.getTime());
         System.out.println("Primera clave: " + claveMecanica + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveMecanica)));
         System.out.println("Segunda clave: " + claveSecure + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveSecure)));
         System.out.println("Tercera clave: " + claveIdeal + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveIdeal)));

@@ -1,5 +1,7 @@
 package me.ansuz.amrv.practicas.practica1;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -180,7 +182,6 @@ public class EntradaDatos {
 				date.set(GregorianCalendar.YEAR, Integer.parseInt(datos[2]));
 				date.set(GregorianCalendar.MONTH, Integer.parseInt(datos[1]) - 1);
 				date.set(GregorianCalendar.DATE, Integer.parseInt(datos[0]));
-				System.out.println(date.getTime());
 				if (date.compareTo(max) < 0)
 					valido = true;
 				else

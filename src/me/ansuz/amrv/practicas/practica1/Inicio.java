@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package me.ansuz.amrv.practicas.practica1;
 
 import java.util.GregorianCalendar;
@@ -9,7 +5,7 @@ import java.util.Random;
 
 /**
  *
- * @author marruiad
+ * @author Adrian Martin Ruiz del Valle
  */
 public class Inicio {
 
@@ -29,7 +25,7 @@ public class Inicio {
         // Clave que se obtendrá con los datos normalizados del usuario
         String clave = "";
         // Valor numerico del DNI
-        int dni = 0;
+        String dni = "";
         // Fecha de nacimiento del usuario
         GregorianCalendar nacimiento;
         // Clave mecanica
@@ -39,16 +35,17 @@ public class Inicio {
         // Clave ideal
         String claveIdeal = "";
 
-        System.out.println("Programa para generar contrasñeas dado el nombre");
+        System.out.println("Programa para generar claves dado el nombre");
         System.out.println("================================================");
 
         // Obtencion del nombre del usuario
         nombreOriginal = EntradaDatos.getTexto("Introduce tu nombre:");
         if (nombreOriginal.length() < 3) {
             System.out.println("AVISO: El nombre es muy corto, deberias usar un nombre de pila o apodo");
-            boolean valido = EntradaDatos.getBoolean("¿Estas seguro de que deseas usar ese nombre?");
+            // Permite al usuario cambiar el nombre en caso de que sea muy corto
+            boolean valido = EntradaDatos.getBoolean("�Estas seguro de que deseas usar ese nombre?");
             if (valido) {
-                System.out.println("Vale, el programa auto formateará tu nombre");
+                System.out.println("Vale, el programa auto formateara tu nombre");
             } else {
                 nombreOriginal = EntradaDatos.getTexto("Introduce un nombre de 3 letras minimo", 3);
             }
@@ -60,9 +57,10 @@ public class Inicio {
         primerApellidoOriginal = EntradaDatos.getTexto("Introduce tu primer apellido:");
         if (primerApellidoOriginal.length() < 2) {
             System.out.println("AVISO: El apellido es muy corto, deberias usar un nombre de pila o apodo");
-            boolean valido = EntradaDatos.getBoolean("¿Estas seguro de que deseas usar ese apellido?");
+            // Permite al usuario cambiar el primer apellido en caso de que sea muy corto
+            boolean valido = EntradaDatos.getBoolean("�Estas seguro de que deseas usar ese apellido?");
             if (valido) {
-                System.out.println("Vale, el programa auto formateará tu apellido");
+                System.out.println("Vale, el programa auto formateara tu apellido");
             } else {
                 primerApellidoOriginal = EntradaDatos.getTexto("Introduce un apellido de 2 letras minimo", 2);
             }
@@ -74,9 +72,10 @@ public class Inicio {
         segundoApellidoOriginal = EntradaDatos.getTexto("Introduce tu segundo apellido:");
         if (segundoApellidoOriginal.length() < 2) {
             System.out.println("AVISO: El apellido es muy corto, deberias usar un nombre de pila o apodo");
-            boolean valido = EntradaDatos.getBoolean("¿Estas seguro de que deseas usar ese apellido?");
+            // Permite al usuario cambiar el apellido en caso de que sea muy corto
+            boolean valido = EntradaDatos.getBoolean("�Estas seguro de que deseas usar ese apellido?");
             if (valido) {
-                System.out.println("Vale, el programa auto formateará tu apellido");
+                System.out.println("Vale, el programa auto formateara tu apellido");
             } else {
                 segundoApellidoOriginal = EntradaDatos.getTexto("Introduce un apellido de 2 letras minimo", 2);
             }
@@ -85,10 +84,10 @@ public class Inicio {
         segundoApellidoNormalizado = Operador.normalizarTexto(segundoApellidoOriginal, 2);
 
         // Obtencion del DNI
-        dni = EntradaDatos.getNumber("Introduce tu DNI: ", 8, 8);
+        dni = EntradaDatos.getDni("Introduce tu DNI: ");
 
         // Obtencion de la fecha de nacimiento del usuario
-        nacimiento = EntradaDatos.getDate("Introduce tu fecha de nacimiento (dia/mes/año)", new GregorianCalendar());
+        nacimiento = EntradaDatos.getDate("Introduce tu fecha de nacimiento (dia/mes/year)", new GregorianCalendar());
 
         // Generacion de las claves
         Random rnd = new Random(); // Generador de dimensiones de claves

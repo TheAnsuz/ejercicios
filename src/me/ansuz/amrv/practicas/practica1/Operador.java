@@ -1,18 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package me.ansuz.amrv.practicas.practica1;
-
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  *
- * @author marruiad
+ * @author Adrian Martin Ruiz del Valle
  */
 public class Operador {
-
+	
 	// Cadena de texto de los posibles valores que puede tener el dni
 	public static String caracteresDni = "TRWAGMYFPDXBNJZSQVHLCKE";
 
@@ -22,20 +15,9 @@ public class Operador {
 	 * @param dni valor numerico del DNI
 	 * @return letra correspondiente
 	 */
-	public static char generarLetraDni(int dni) {
-		return Character.toUpperCase(caracteresDni.charAt((int) dni % 23));
-	}
-
-	/**
-	 * Obtiene la fecha a partir del dia, mes y año correspondientes.
-	 *
-	 * @param dia  el dia de la fecha
-	 * @param mes  el mes de la fecha empezando en 1 y acabando en 12
-	 * @param year el año de la fecha
-	 * @return un objeto Date conteniendo la fecha
-	 */
-	public static Date generarFecha(int dia, int mes, int year) {
-		return new GregorianCalendar(year, mes, dia).getTime();
+	public static char generarLetraDni(String dni) {
+		int num = Integer.parseInt(dni);
+		return caracteresDni.charAt(num % 23);
 	}
 
 	/**
@@ -78,10 +60,7 @@ public class Operador {
 	 */
 	public static boolean contieneSimbolos(String texto) {
 		for (int i = 0; i < texto.length(); i++) {
-			char c = texto.charAt(i);
-			if (c > 32 && c < 48)
-				return true;
-			else if (c > 57 && c < 65)
+			if (!Character.isLetterOrDigit(texto.charAt(i)))
 				return true;
 		}
 		return false;

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package me.ansuz.amrv.practicas.practica1;
 
 import java.security.SecureRandom;
@@ -11,7 +7,7 @@ import java.util.Random;
 
 /**
  *
- * @author marruiad
+ * @author Adrian Martin Ruiz del Valle
  */
 public class Clave {
 
@@ -74,7 +70,7 @@ public class Clave {
 	 * @param nacimiento la fecha de nacimiento del usuario
 	 * @return la clave ideal con la longitud requerida
 	 */
-	public static String generarIdeal(int size, String nombre, String apellido, int dni, Date nacimiento) {
+	public static String generarIdeal(int size, String nombre, String apellido, String dni, Date nacimiento) {
 		DateFormat fecha = DateFormat.getDateInstance(DateFormat.YEAR_FIELD); // Fecha
 		String clave = "";
 		// Primera parte de la clave (letra del nombre)
@@ -82,8 +78,7 @@ public class Clave {
 		// Segunda parte de la clave (letra apellido)
 		clave += apellido.toLowerCase().charAt(apellido.length() - 1);
 		// Tercera y cuarta parte de la clave (cifras del DNI)
-		String claveTemporalDni = Integer.toString(dni);
-		clave += claveTemporalDni.substring(claveTemporalDni.length() - 2);
+		clave += dni.substring(dni.length() - 2);
 		// Quinto caracter de la clave (letra del DNI)
 		clave += Operador.generarLetraDni(dni);
 		// Sexto y septimo caracteres de la clave (fecha de nacimiento)

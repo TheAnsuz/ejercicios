@@ -1,4 +1,6 @@
 Se puede usar un while(true) con returns para validar datos (EntradaDatos > getBoolean())
-Deben los DNI de tener la posibilidad de empezar por 0
+EL METODO DE LOS DADOS DEBE FUNCIONAR COMO UN STRING CON TODO O COMO VARIOS STRING CON CADA FILA
+Si>>>>				Deben los DNI de tener la posibilidad de empezar por 0
 Se puden usar los break y continue dentro de bucles
-debe de haber una clave poco segura, segura y muy segura o debe de ser resultado aleatorio
+Aleatorio>>>>	 	Debe de haber una clave poco segura, segura y muy segura o debe de ser resultado aleatorio
+O too o nada>>>> 	Que hacer si una clave contiene simbolos pero no tiene mayusculs, minusculas o digitos (clave entre muy segura y segura a secas)

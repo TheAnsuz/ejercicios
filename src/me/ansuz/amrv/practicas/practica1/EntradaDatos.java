@@ -48,16 +48,13 @@ public class EntradaDatos {
                 valido = false;
             }
 
-            // Comprobar que todos las letras son alfanumericas
-            for (int c = 0; c < texto.length(); c++) {
-
-                if (!Character.isLetterOrDigit(texto.charAt(c)) && !Character.isWhitespace(texto.charAt(c))) {
-                    valido = false;
-                    System.out.println("El texto no puede contener caracteres especiales");
-                    break;
-
-                }
-
+            // Comprobar que no tiene simbolos
+            if (Operador.contieneSimbolos(texto)) {
+                valido = false;
+                System.out.println("El texto no puede contener caracteres especiales");
+            } else if (Operador.contieneNumeros(texto)) {
+                valido = false;
+                System.out.println("El texto no puede contener numeros");
             }
 
         } while (!valido);
@@ -110,7 +107,9 @@ public class EntradaDatos {
         do {
             System.out.println(enunciado);
             entrada = scan.nextLine();
-            if (entrada.length() < minBytes || entrada.length() > maxBytes) {
+            if (entrada.startsWith("0"))
+                System.out.println("El DNI no puede empezar con un 0");
+            else if (entrada.length() < minBytes || entrada.length() > maxBytes) {
 
                 if (minBytes != maxBytes)
                     System.out.println(
@@ -123,6 +122,8 @@ public class EntradaDatos {
                     numero = Integer.parseInt(entrada);
                     if (numero > 0)
                         valido = true;
+                    else if (numero == 0)
+                        System.out.println("El numero no puede ser cero");
                     else
                         System.out.println("El numero no puede ser un numero negativo");
                 } catch (Exception e) {
@@ -153,7 +154,7 @@ public class EntradaDatos {
                 String[] datos = scan.nextLine().split("/");
                 date.setLenient(false);
                 date.set(GregorianCalendar.YEAR, Integer.parseInt(datos[2]));
-                date.set(GregorianCalendar.MONTH, Integer.parseInt(datos[1])-1);
+                date.set(GregorianCalendar.MONTH, Integer.parseInt(datos[1]) - 1);
                 date.set(GregorianCalendar.DATE, Integer.parseInt(datos[0]));
                 System.out.println(date.getTime());
                 if (date.compareTo(max) < 0)
@@ -168,11 +169,6 @@ public class EntradaDatos {
         } while (!valido);
 
         return date;
-    }
-    
-    public static void main(String[] args) {
-        GregorianCalendar cal = getDate("DAME TU PUTA FECHA", new GregorianCalendar());
-        System.out.println(cal.getTime());
     }
 
 }

@@ -38,12 +38,19 @@ public class Inicio {
         System.out.println("Programa para generar claves dado el nombre");
         System.out.println("================================================");
 
+        /*
+            Tanto el nombre como los apellidos deben de ser capaces de permitir 
+            que el usuario tenga nombre/apellido compuesto, por
+            ejemplo una persona puede llamarse Jose Maria Manuel, o apellidarse 
+            Ruiz del Valle como apellido compuesto, como es mi caso
+         */
+        
         // Obtencion del nombre del usuario
         nombreOriginal = EntradaDatos.getTexto("Introduce tu nombre:");
         if (nombreOriginal.length() < 3) {
             System.out.println("AVISO: El nombre es muy corto, deberias usar un nombre de pila o apodo");
             // Permite al usuario cambiar el nombre en caso de que sea muy corto
-            boolean valido = EntradaDatos.getBoolean("¿Estas seguro de que deseas usar ese nombre?");
+            boolean valido = EntradaDatos.getBoolean("Estas seguro de que deseas usar ese nombre?");
             if (valido) {
                 System.out.println("Vale, el programa auto formateara tu nombre");
             } else {
@@ -58,7 +65,7 @@ public class Inicio {
         if (primerApellidoOriginal.length() < 2) {
             System.out.println("AVISO: El apellido es muy corto, deberias usar un nombre de pila o apodo");
             // Permite al usuario cambiar el primer apellido en caso de que sea muy corto
-            boolean valido = EntradaDatos.getBoolean("¿Estas seguro de que deseas usar ese apellido?");
+            boolean valido = EntradaDatos.getBoolean("Estas seguro de que deseas usar ese apellido?");
             if (valido) {
                 System.out.println("Vale, el programa auto formateara tu apellido");
             } else {
@@ -73,7 +80,7 @@ public class Inicio {
         if (segundoApellidoOriginal.length() < 2) {
             System.out.println("AVISO: El apellido es muy corto, deberias usar un nombre de pila o apodo");
             // Permite al usuario cambiar el apellido en caso de que sea muy corto
-            boolean valido = EntradaDatos.getBoolean("¿Estas seguro de que deseas usar ese apellido?");
+            boolean valido = EntradaDatos.getBoolean("Estas seguro de que deseas usar ese apellido?");
             if (valido) {
                 System.out.println("Vale, el programa auto formateara tu apellido");
             } else {
@@ -87,7 +94,8 @@ public class Inicio {
         dni = EntradaDatos.getDni("Introduce tu DNI: ");
 
         // Obtencion de la fecha de nacimiento del usuario
-        nacimiento = EntradaDatos.getDate("Introduce tu fecha de nacimiento (dia/mes/year)", new GregorianCalendar());
+        nacimiento = EntradaDatos.getDate("Introduce tu fecha de nacimiento (dia/mes/year)",
+                new GregorianCalendar(1900, 0, 1), new GregorianCalendar());
 
         // Generacion de las claves
         Random rnd = new Random(); // Generador de dimensiones de claves

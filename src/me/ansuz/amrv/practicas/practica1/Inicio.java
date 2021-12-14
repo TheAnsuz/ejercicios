@@ -100,16 +100,16 @@ public class Inicio {
         claveIdeal = Clave.generarIdeal(rnd.nextInt(4) + 4, nombreOriginal, primerApellidoOriginal, dni, nacimiento.getTime());
 
         // Imprimir datos de usuario
-        System.out.println("=======Usuario=========================");
-        System.out.println("Nombre: " + nombreOriginal);
-        System.out.println("Apellidos: " + primerApellidoOriginal + " " + segundoApellidoOriginal);
-        System.out.println("DNI: " + dni + ' ' + Operador.generarLetraDni(dni));
-        System.out.println("Usuario: " + clave);
-//        System.out.println("Fecha de nacimiento: " + nacimiento.getTime());
-        System.out.println("Primera clave: " + claveMecanica + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveMecanica)));
-        System.out.println("Segunda clave: " + claveSecure + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveSecure)));
-        System.out.println("Tercera clave: " + claveIdeal + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveIdeal)));
-        System.out.println("=======================================");
+        System.out.println("<|=======Usuario=========================|>");
+        System.out.println("   Nombre: " + nombreOriginal);
+        System.out.println("   Apellidos: " + primerApellidoOriginal + " " + segundoApellidoOriginal);
+        System.out.println("   DNI: " + dni + ' ' + Operador.generarLetraDni(dni));
+        System.out.println("   Usuario: " + clave);
+//        System.out.println("   Fecha de nacimiento: " + nacimiento.getTime());
+        System.out.println("   Primera clave: " + claveMecanica + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveMecanica)));
+        System.out.println("   Segunda clave: " + claveSecure + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveSecure)));
+        System.out.println("   Tercera clave: " + claveIdeal + " - " + Operador.formatearClave(Clave.obtenerNivelSeguridad(claveIdeal)));
+        System.out.println("<|=======================================|>");
     }
 
 }

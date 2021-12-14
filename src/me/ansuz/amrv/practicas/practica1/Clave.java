@@ -15,9 +15,9 @@ public class Clave {
 	public static String tabla = "abcdefghijklmnopqrstuvwxyz0123456789";
 	// Cadena de texto con los caracteres mayusculos/alternativos de la clave
 	// mecanica
-	public static String tablaAlternativa = "ABCDEFGHIJKLMNOPQRSTUVWXYZ=|@#$€&/()";
+	public static String tablaAlternativa = "ABCDEFGHIJKLMNOPQRSTUVWXYZ=|@#$%&/()";
 	// Cadena de texto con los caracteres especiales de los numeros
-	public static String caracteresEspeciales = "=!@#$%&/()";
+	public static String caracteresEspeciales = "=|@#$%&/()";
 
 	/**
 	 * Obtiene una clave mecanica aleatoria dado el tamaño en caracteres de la
@@ -73,6 +73,7 @@ public class Clave {
 	public static String generarIdeal(int size, String nombre, String apellido, String dni, Date nacimiento) {
 		DateFormat fecha = DateFormat.getDateInstance(DateFormat.YEAR_FIELD); // Fecha
 		String clave = "";
+		Random rnd = new Random();
 		// Primera parte de la clave (letra del nombre)
 		clave += nombre.toUpperCase().charAt(0);
 		// Segunda parte de la clave (letra apellido)
@@ -85,7 +86,6 @@ public class Clave {
 		String fechaTemporal = fecha.format(nacimiento);
 		clave += fechaTemporal.substring(fechaTemporal.length() - 2);
 		// Octavo caracter de la clave (simbolo aleatorio)
-		Random rnd = new Random();
 		clave += caracteresEspeciales.charAt(rnd.nextInt(caracteresEspeciales.length()));
 
 		// Devolver la seccion de la clave

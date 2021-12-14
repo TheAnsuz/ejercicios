@@ -1,7 +1,5 @@
 package me.ansuz.amrv.practicas.practica1;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 

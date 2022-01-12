@@ -15,7 +15,7 @@ import java.util.Date;
  */
 public class Persona {
 
-    private static final String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+    private static final String LETRAS = "TRWAGMYFPDXBNJZSQVHLCKE";
 
     private final String DNI;
     private String nombre;
@@ -42,7 +42,7 @@ public class Persona {
     }
 
     public char getLetraDNI() {
-        return letras.charAt((Integer.parseInt(DNI) % 23) + 1);
+        return LETRAS.charAt((Integer.parseInt(DNI) % 23) + 1);
     }
 
     public int getEdad() {
@@ -115,22 +115,20 @@ public class Persona {
     }
 
     public int getPesoIdeal() {
-        final double ideal = 0.75 *(altura - 150) + 50;
+        final double ideal = 0.75 * (altura - 150) + 50;
         return (ideal > peso) ? -1 : (ideal < peso) ? 1 : 0;
     }
-    
+
     public boolean isMayorDeEdad() {
         return getEdad() > 18;
     }
 
-        @Override
+    @Override
     public String toString() {
-        return "Persona{dni= " + DNI + getLetraDNI() + " nombre= " + nombre + " " + apellidos 
-                + " genero= " + ((genero == 'h') ? "hombre" : "mujer") + " nacimiento= " 
-                + getFechaNacimientoFormateada().toLowerCase() + " altura= " + altura + " peso= " + peso 
+        return "Persona{dni= " + DNI + getLetraDNI() + " nombre= " + nombre + " " + apellidos
+                + " genero= " + ((genero == 'h') ? "hombre" : "mujer") + " nacimiento= "
+                + getFechaNacimientoFormateada().toLowerCase() + " altura= " + altura + " peso= " + peso
                 + " casado= " + ((casado) ? "si" : "no") + "}";
     }
-    
-
 
 }

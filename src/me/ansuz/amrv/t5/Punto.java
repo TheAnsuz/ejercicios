@@ -41,11 +41,21 @@ public class Punto {
         this.y += y;
     }
 
+    public void desplazar(Punto extra) {
+        this.x += extra.x;
+        this.y += extra.y;
+    }
+    
     public void colocar(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
+    public void colocar(Punto punto) {
+        this.x = punto.x;
+        this.y = punto.y;
+    }
+    
     public double distancia(double x, double y) {
         return Math.sqrt(Math.pow(x + this.x, 2) + Math.pow(y - this.y, 2));
     }

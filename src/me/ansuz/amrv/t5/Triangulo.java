@@ -40,6 +40,10 @@ public class Triangulo {
         return centro;
     }
 
+    public void desplazar(Punto extra) {
+        this.centro.desplazar(extra);
+    }
+    
     public void setCentro(Punto centro) {
         this.centro = centro;
     }

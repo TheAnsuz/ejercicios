@@ -12,7 +12,6 @@ public class Circulo {
     
     private double radio;
     private Punto centro;
-    
     public Circulo(double radio, Punto centro) {
         this.radio = radio;
         this.centro = centro;

@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -118,7 +119,7 @@ public class Persona {
         final double ideal = 0.75 * (altura - 150) + 50;
         return (ideal > peso) ? -1 : (ideal < peso) ? 1 : 0;
     }
-
+    
     public boolean isMayorDeEdad() {
         return getEdad() > 18;
     }
@@ -131,4 +132,43 @@ public class Persona {
                 + " casado= " + ((casado) ? "si" : "no") + "}";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Persona other = (Persona) obj;
+        if (this.genero != other.genero)
+            return false;
+        if (this.altura != other.altura)
+            return false;
+        if (Float.floatToIntBits(this.peso) != Float.floatToIntBits(other.peso))
+            return false;
+        if (this.casado != other.casado)
+            return false;
+        if (!Objects.equals(this.DNI, other.DNI))
+            return false;
+        if (!Objects.equals(this.nombre, other.nombre))
+            return false;
+        if (!Objects.equals(this.apellidos, other.apellidos))
+            return false;
+        if (!Objects.equals(this.fechaNacimiento, other.fechaNacimiento))
+            return false;
+        return true;
+    }
+
+   
+
+    public static void main(String[] args) {
+        Date d = Calendar.getInstance().getTime();
+        Persona a = new Persona("123121324","Nombre","Apellido",'h',d,123,123f,true);
+        Persona b = new Persona("123121324","Nombre","Apellido",'h',d,123,123f,true);
+        String c = "hola";
+        System.out.println(a.equals(b));
+        System.out.println(a.equals(c));
+    }
+    
 }

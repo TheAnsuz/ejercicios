@@ -53,7 +53,7 @@ public class Alquiler {
     }
 
     public double getAlquiler() {
-        double dias = Duration.between(fechaInicio, fechaFinal).toDays();
+        double dias = Duration.between(fechaInicio, fechaFinal).toDays() + 1;
         return dias * barco.moduloFuncion();
     }
 

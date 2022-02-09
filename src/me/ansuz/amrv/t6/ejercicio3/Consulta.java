@@ -33,5 +33,4 @@ public class Consulta {
     public String getDni() {
         return dni;
     }
-
 }

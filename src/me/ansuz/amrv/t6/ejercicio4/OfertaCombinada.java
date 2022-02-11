@@ -8,21 +8,21 @@ package me.ansuz.amrv.t6.ejercicio4;
  *
  * @author marruiad
  */
-public class Oferta2 implements Operaciones {
+public class OfertaCombinada implements Operaciones {
 
-    public static final float PRECIO = 0.25f;
+    public static final float PRECIO = 0.3f;
 
+    private long seconds = 0l;
     private final float percent;
-    private long seconds;
 
-    public Oferta2(float percent) {
+    public OfertaCombinada(float percent) {
         this.percent = percent;
         this.seconds = 0;
     }
 
     @Override
     public void conexion(int sec) {
-        seconds += sec < 0 ? 0 : seconds;
+        seconds += sec - 180 < 0 ? 0 : sec - 180;
     }
 
     @Override
@@ -32,17 +32,16 @@ public class Oferta2 implements Operaciones {
 
     @Override
     public void reset() {
-        seconds = 0;
-    }
-
-    public float getPercent() {
-        return percent;
+        this.seconds = 0;
     }
 
     public long getSeconds() {
         return seconds;
     }
 
-    
+    public float getPercent() {
+        return percent;
+    }
+
     
 }

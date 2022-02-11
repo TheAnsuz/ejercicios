@@ -12,21 +12,26 @@ public class Oferta1 implements Operaciones {
 
     public static final float PRECIO = 0.3f;
 
-    private long seg = 0l;
+    private long seconds = 0l;
 
     @Override
     public void conexion(int sec) {
-        seg += sec - 180 < 0 ? 0 : sec - 180;
+        seconds += sec - 180 < 0 ? 0 : sec - 180;
     }
 
     @Override
     public double importe() {
-        return seg * PRECIO;
+        return seconds * PRECIO;
     }
 
     @Override
     public void reset() {
-        seg = 0;
+        seconds = 0;
     }
 
+    public long getSeconds() {
+        return seconds;
+    }
+
+    
 }

@@ -14,7 +14,7 @@ public abstract class Empleado implements Sueldo {
 
     private final String nombre;
     protected float sueldo;
-    private DecimalFormat format = new DecimalFormat("##.000,##€");
+    private final DecimalFormat format = new DecimalFormat("##.000,##€");
 
     public Empleado(String nombre) {
         this.nombre = nombre;
@@ -23,6 +23,14 @@ public abstract class Empleado implements Sueldo {
     @Override
     public float getSueldo() {
         return sueldo;
+    }
+
+    public void setSueldo(float sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
     public String getSueldoFormat() {

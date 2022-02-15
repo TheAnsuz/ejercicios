@@ -20,11 +20,12 @@ public class ListaAleatoria {
         for (int i = 0; i < nums.length; i++) {
             nums[i] = generarNumero(nums);
         }
-     
+
         System.out.println("> " + Arrays.toString(nums) + " <");
-        
+
     }
-    public static int generarNumero(int[] array) {
+
+    public static int generarNumero(int... array) {
         final int n = rnd.nextInt(array.length) + 1;
         return contieneNumero(array, n) ? generarNumero(array) : n;
     }
@@ -33,6 +34,7 @@ public class ListaAleatoria {
         for (int n : array)
             if (n == numero)
                 return true;
+
         return false;
     }
 

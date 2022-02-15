@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class Datos {
 
-    public static int[] numeros;
+    public static int[] numeros = new int[0];
 
     public static void main(String[] args) {
         numeros = generar(10);
@@ -37,7 +37,7 @@ public class Datos {
         Random rnd = new Random();
         int[] numeros = new int[size];
         for (int i = 0; i < size; i ++) {
-            numeros[i] = rnd.nextInt(11);
+            numeros[i] = rnd.nextInt(10);
         }
         return numeros;
     }

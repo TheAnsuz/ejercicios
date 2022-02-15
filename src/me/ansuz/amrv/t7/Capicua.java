@@ -48,4 +48,5 @@ public class Capicua {
             }
         } while (true);
     }
+    
 }

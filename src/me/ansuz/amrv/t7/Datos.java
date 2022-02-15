@@ -4,15 +4,18 @@
  */
 package me.ansuz.amrv.t7;
 
+import java.util.Random;
+
 /**
  *
  * @author marruiad
  */
 public class Datos {
 
-    public static int[] numeros = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    public static int[] numeros;
 
     public static void main(String[] args) {
+        numeros = generar(10);
         pares();
         System.out.println("Total......." + suma());
     }
@@ -28,5 +31,14 @@ public class Datos {
         for (int n : numeros)
             total += n;
         return total;
+    }
+    
+    public static int[] generar(int size) {
+        Random rnd = new Random();
+        int[] numeros = new int[size];
+        for (int i = 0; i < size; i ++) {
+            numeros[i] = rnd.nextInt(11);
+        }
+        return numeros;
     }
 }

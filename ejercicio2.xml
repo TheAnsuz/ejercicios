@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ejercicio2 [
+    <!ELEMENT persona (nombre, nacimiento, direccion, (varon | hembra) )>
+    <!ELEMENT direccion (calle, poblacion, provincia, c_postal)>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT nacimiento (#PCDATA)>
+    <!ELEMENT calle (#PCDATA)>
+    <!ELEMENT poblacion (#PCDATA)>
+    <!ELEMENT provincia (#PCDATA)>
+    <!ELEMENT c_postal (#PCDATA)>
+]>
+
+<persona>
+    <nombre>John Smith</nombre>
+    <nacimiento dia='21' mes='Enero' year='1969'/>
+    <direccion>
+        <calle>Avda. Universidad, 30</calle>
+        <poblacion>Legarés</poblacion>
+        <provincia>Madrid</provincia>
+        <c_postal>28911</c_postal>
+    </direccion>
+    <varon/>
+</persona>

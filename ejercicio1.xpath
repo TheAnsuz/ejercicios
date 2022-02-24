@@ -1,0 +1,40 @@
+(:zona 10 - nombre suma de todos los stock actual y minimo de esa zona:)
+concat(sum(//produc[cod_zona=10]/stock_actual),"-", sum(//produc[cod_zona=10]/stock_minimo),"-" ,//zona[cod_zona=10]/nombre),
+
+(:mostrar el director de las zonas en las que algun producto contenga la palabra "tarjeta"
+o "memoria":)
+//zona[cod_zona=//produc[contains(denominacion,'Tarjeta') or contains(denominacion,'Memoria')]/cod_zona]/director,
+
+(:denominacion del producto cuyo precio supera la media de los precios de la zona 20:)
+//produc[precio>=avg(//produc[cod_zona=20]/precio)]/denominacion,
+
+(:1. Obtén los nodos denominación y precio de todos los productos.:)
+//produc/(denominacion|precio),
+
+(:2. Obtén los nodos de los productos que sean placas base.:)
+//produc[contains(denominacion,'Placa Base')],
+
+(:3. Obtén los nodos de los productos con precio mayor de 60 € y de la zona 20.:)
+//produc[precio>60 and cod_zona=20],
+
+(:4. Obtén el número de productos que sean memorias y de la zona 10.:)
+count(//produc[contains(denominacion,'Memoria') and cod_zona=10]),
+
+(:5. Obtén la media de precio de los micros:)
+avg(//produc[contains(denominacion,'Micro')]/precio),
+
+(:6. Obtén los datos de los productos cuyo stock mínimo sea mayor que su stock actual.:)
+//produc[stock_minimo>stock_actual],
+
+(:7. Obtén el nombre de producto y el precio de aquellos cuyo stock mínimo sea mayor que su stock 
+actual y sean de la zona 40:)
+//produc[stock_minimo>stock_actual and cod_zona=40]/(denominacion|precio),
+
+(:8. Obtén el producto más caro.:)
+//produc[precio=max(//produc/precio)],
+
+(:9. Obtén el producto más barato de la zona 20:)
+//produc[precio=min(//produc[cod_zona=20]/precio)],
+
+(:10. Obtén el producto más caro de la zona 10:)
+//produc[precio=max(//produc[cod_zona=10]/precio)]

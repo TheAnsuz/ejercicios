@@ -44,4 +44,9 @@ public class Barco {
         return (this.eslora * 10) * MULTIPLICADOR;
     }
 
+    public static Object[] shuffleArray(Object[] array) {
+        return null;
+    }
+
+    
 }

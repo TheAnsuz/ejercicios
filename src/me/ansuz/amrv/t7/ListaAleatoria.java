@@ -20,7 +20,6 @@ public class ListaAleatoria {
         for (int i = 0; i < nums.length; i++) {
             nums[i] = generarNumero(nums);
         }
-
         System.out.println("> " + Arrays.toString(nums) + " <");
 
     }

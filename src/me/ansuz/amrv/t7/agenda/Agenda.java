@@ -5,6 +5,7 @@
 package me.ansuz.amrv.t7.agenda;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Programa de agenda
@@ -29,7 +30,8 @@ import java.util.Arrays;
  */
 public class Agenda {
     
-    private Contacto[] contactos = new Contacto[100];
+    private static final int INITIAL_LENGTH = 100;
+    private Contacto[] contactos = new Contacto[INITIAL_LENGTH];
     private int indice = 0;
     
     private boolean comprobarEspacio() {
@@ -37,7 +39,8 @@ public class Agenda {
             return false;
         if (indice + 10 >= contactos.length) {
             contactos = Arrays.copyOf(contactos, contactos.length*2);
-        }
+        } else if (indice < contactos.length /2)
+            contactos = Arrays.copyOf(contactos, contactos.length/2);
         return true;
     }
     
@@ -65,8 +68,12 @@ public class Agenda {
     public boolean eliminar(int posicion) {
         if (posicion <= 0 || posicion > indice)
             return false;
-        contactos[indice--] = null;
+        contactos[posicion] = null;
         return true;
+    }
+    
+    public void vaciar() {
+        indice = 0;
     }
     
     public Contacto[] buscarNombre(String nombre, boolean ignoreCase, boolean onlyContains) {
@@ -81,7 +88,7 @@ public class Agenda {
                 if (ignoreCase ? dato.equalsIgnoreCase(nombre) : dato.equals(nombre))
                     encontrados[index++] = contactos[i];
         }
-        return Arrays.copyOf(encontrados, index+1);
+        return Arrays.copyOf(encontrados, index);
     }
     
     public Contacto[] buscarTelefono(String telefono, boolean ignoreCase, boolean onlyContains) {
@@ -96,7 +103,7 @@ public class Agenda {
                 if (ignoreCase ? dato.equalsIgnoreCase(telefono) : dato.equals(telefono))
                     encontrados[index++] = contactos[i];
         }
-        return Arrays.copyOf(encontrados, index+1);
+        return Arrays.copyOf(encontrados, index);
     }
     
     public boolean modificarContacto(int posicion,String nombre, String telefono) {
@@ -111,7 +118,31 @@ public class Agenda {
         return true;
     }
     
-    public Contacto[] ordenarPorNombre() {
-        Arrays.so
+    public Contacto[] ordenar() {
+        Contacto[] ordenados = Arrays.copyOf(contactos,indice);
+        Arrays.sort(ordenados);
+        return ordenados;
+    }
+    
+    public Contacto[] ordenarNombres() {
+        Contacto[] ordenados = Arrays.copyOf(contactos,indice);
+        Arrays.sort(ordenados, new Comparator<Contacto>() {
+            @Override
+            public int compare(Contacto o1, Contacto o2) {
+                return o1.getNombre().compareTo(o2.getNombre());
+            }
+        });
+        return ordenados;
+    }
+    
+    public Contacto[] ordenarTelefonos() {
+        Contacto[] ordenados = Arrays.copyOf(contactos,indice);
+        Arrays.sort(ordenados, new Comparator<Contacto>() {
+            @Override
+            public int compare(Contacto o1, Contacto o2) {
+                return o1.getTelefono().compareTo(o2.getTelefono());
+            }
+        });
+        return ordenados;
     }
 }

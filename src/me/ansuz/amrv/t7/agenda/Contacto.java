@@ -55,9 +55,11 @@ public class Contacto implements Comparable<Contacto>{
 
     @Override
     public int compareTo(Contacto o) {
-        int i = 0;
-        i += o.nombre.compareTo(this.nombre) > 0 ? -1;
+        return o.id > this.id ? -1 : o.id < this.id ? 1 : 0;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "{ " + nombre + ": " + telefono + " }";
+    }
 }

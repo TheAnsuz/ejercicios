@@ -24,11 +24,11 @@ count(//produc[contains(denominacion,'Memoria') and cod_zona=10]),
 avg(//produc[contains(denominacion,'Micro')]/precio),
 
 (:6. Obtén los datos de los productos cuyo stock mínimo sea mayor que su stock actual.:)
-//produc[stock_minimo>stock_actual],
+//produc[number(stock_minimo)>number(stock_actual)],
 
 (:7. Obtén el nombre de producto y el precio de aquellos cuyo stock mínimo sea mayor que su stock 
 actual y sean de la zona 40:)
-//produc[stock_minimo>stock_actual and cod_zona=40]/(denominacion|precio),
+//produc[number(stock_minimo)>number(stock_actual) and cod_zona=40]/(denominacion|precio),
 
 (:8. Obtén el producto más caro.:)
 //produc[precio=max(//produc/precio)],

@@ -1,4 +1,4 @@
-# Ejercicios DAM - Bases de datos
+# Ejercicios DAM
 ### Ejercicios realizados en Desarrollo de Aplicaciones Multiplataforma
 
 EN este repositorio estan todos los ejercicios que he podido subir asi como el material de las clases, principalmente para poder acceder a ello de manera mas sencilla y

@@ -132,5 +132,96 @@ group by
 having
     sum(ventas) > 100000;
 
-/* Sintaxis JOIN */
---continuara...
+/* Uniones de tablas */
+--Join: une dos tablas con un valor en comun
+select
+    oficina.director,
+    usuarios.nombre
+from
+    oficinas
+    join usuarios on oficina.director = usuarios.id;
+
+--es lo mismo que: 
+select
+    oficina.director,
+    usuarios.nombre
+from
+    oficinas,
+    usuarios
+where
+    oficinas.director = usuarios.id;
+
+-- Left/Right Join: usando de ejemplo (oficinas.director = usuarios.id)
+-- left se refiere a la columna de la tabla de la izquierda y right a la de la derecha
+-- su función es unir las tablas y dejar como nulas las filas en las que no haya valor
+-- como ejemplo:
+select
+    oficina.director,
+    usuarios.nombre
+from
+    oficinas
+    left join usuarios on oficinas.director = usuarios.id;
+
+-- Si usuarios contiene una id que no contenga la columna de director de oficinas
+-- entonces la oficina de esa fila será nula, porque no existe pero el join especifica
+-- que aun asi debe de aparecer esa fila
+left join usuarios on oficinas.director = usuarios.id;
+
+-- esto es igual que
+where
+    oficinas.director (+) = usuarios.id;
+
+-- en cambio si existiera el id de un director que no existe en los usuarios, esa fila simplemente
+-- no aparecería en la consulta
+--
+-- esto mismo ocurre con el RIGHT JOIN
+right join usuarios on oficinas.director = usuarios.id;
+
+where
+    oficinas.director = usuarios.id (+);
+
+-- Full Join: es la union entre un RIGHT JOIN y/o un LEFT JOIN, de tal modo que si alguno de los valores
+-- es nulo en alguna de las dos columnas comparadas, aparecerá igualmente, tanto si es la columna LEFT como RIGHT
+----------------------------------------------------------------
+/* Combinacion de tablas */
+-- UNION
+-- combina los resultados de las dos consultas en una misma tabla
+-- el numero de columnas que se muestran debe de ser el mismo
+select
+    nombre -- 1 unica tabla
+from
+    usuarios
+union
+-- puedes espeficiar 'union all' para que no elimine los duplicados
+select
+    nombre -- 1 unica tabla
+from
+    oficinas;
+
+-- INTERSECT
+-- muestra los resultados solo si aparecen en las dos consultas
+-- el numero de columnas que se muestran debe de ser el mismo
+-- elimina automaticamente los duplicados
+select
+    nombre -- 1 unica tabla
+from
+    usuarios
+intersect
+select
+    nombre -- 1 unica tabla
+from
+    oficinas;
+
+-- MINUS
+-- muestra los resultados que no estan en la primera consulta
+-- el numero de columnas que se muestran debe de ser el mismo
+-- elimina automaticamente duplicaods antes de comprobar el MINUS
+select
+    nombre -- 1 unica tabla
+from
+    usuarios
+intersect
+select
+    nombre -- 1 unica tabla
+from
+    oficinas

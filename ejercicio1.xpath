@@ -10,6 +10,8 @@ o "memoria":)
 
 (:1. Obtén los nodos denominación y precio de todos los productos.:)
 //produc/(denominacion|precio),
+(:Otra forma de hacerlo concatenando texto:)
+//produc/concat(denominacion," - ",precio, "€"),
 
 (:2. Obtén los nodos de los productos que sean placas base.:)
 //produc[contains(denominacion,'Placa Base')],

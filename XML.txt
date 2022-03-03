@@ -1,0 +1,210 @@
+XML es un lenguaje de marcas usado para almacenar y enviar informacion de forma plana
+practicamente cualquier lenguaje puede abrir un archivo XML
+
+prefiero YAML
+
+la estructura xml tiene un prologo en la que informa de la codificacion del fichero
+'<?xml version="1.0" encoding="UTF-8"?>'
+
+los xml pueden contener un DTD (o no) situadio al principio del archivo
+
+luego debe de tener un elemento raiz debe ser unica
+
+las etiquetas pueden tener atributos como un archivo html o cualquier lenguaje de marca
+
+- etiquetas
+es case sensitive, siempre empieza por una letra, pueden estar vacios
+
+el elemento es toda la etiqueta, desde que abre hasta que cierra, con todo el contenido
+
+la etiqueta es la palabra clave de cada campo <etiqueta>...</etiqueta>
+
+cada elemento puede tener subelementos
+
+Ejemplo increiblemente sencillo sin ninguna complicacion:
+	#===============================================#
+	#	<persona complejidad="alta">		#
+	#		<nombre>Juan</nombre>		#
+	#		<apellido>Pérez</apellido>	#
+	#	</persona>				#
+	#===============================================#
+Ejemplo completo
+	#==============================================================#
+	#	<?xml version="1.0" encoding="UTF-8" ?		       #
+	#	<alumno sexo="helicoptero" fechaNacimiento="5/6/1990"> #
+	#		<nombre>Pablo</nombre>			       #
+	#		<apellido>Pérez</apellido>		       #
+	#		<telefono tipo="movil">622443322</telefono>    #
+	#		<direccion>Ronda de Burgos 83</direccion>      #
+	#	</alumno>					       #
+	#==============================================================#
+
+Una entidad es una constante
+'<!ENTITY dam "Desarrollo de Aplicaciones Multiplataforma">'
+se escribe '<etiqueta>&dam;</etiqueta>'
+
+Los valores dentro de las equitquetas no deben contenter caracteres especiales ya que 
+algunos son usados por el mismo archivo como los ampersand, tambien hay palabras reservadas
+como XML que no deben ser usados en las etiquetas, tampoco deben empezar con numeros y deben 
+ser preferiblemente caracteres alfanumericos.
+
+Los atributos deben ir siempre en la etiqueta de abrir y deben de tener siempre un valor
+asociado.
+
+Definición de DTD, Definicion de Tipo de Documento, que consta de los valores que debe de 
+tener para que sea valido.
+
+	#=======================================================#
+	#	<?xml version="1.0" encoding="UTF-8"?>		#
+	#	<!DOCTYPE persona [				#
+	#		<!ELEMENT persona (nombre)>		#
+	#		<!ELEMENT nombre (#PCDATA)>		#
+	#	]>						#
+	#=======================================================#
+
+	#=======================================================================#
+	#	<!DOCTYPE raiz SYSTEM "http://www.empresa.com/docs.dtd">	#
+	#=======================================================================#
+
+	#===============================================================#
+	#	<!ENTITY nombreEntidad "valorEntidad">			#
+	#		<!ENTITY pi “3.141592”>				#
+	#		<!ENTITY textFile  SYSTEM "fichero.txt" >	#
+	#===============================================================#
+
+	#===============================================================#
+	#	<!ELEMENT nombreElemento TipoContenido>			#
+	#===============================================================#
+
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+	#		<!ELEMENT ejemplo EMPTY>	#
+	#	]>					#
+	#===============================================#
+		
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+	#		<!ELEMENT ejemplo (#PCDATA)>	#
+	#	]>					#
+	#===============================================#
+
+	#=======================================#
+	#	<!DOCTYPE ejemplo [ 		#
+  	#		<!ELEMENT ejemplo ANY>	#
+	#	]>				#
+	#=======================================#
+
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+	#		<!ELEMENT ejemplo (a, b)>	#
+	#		<!ELEMENT a EMPTY>		#
+	#		<!ELEMENT b EMPTY>		#
+	#	]>					#
+	#===============================================#
+
+	Eleccion de valor, tiene que haber o A o B
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+  	#		<!ELEMENT ejemplo (a | b)>	#
+  	#		<!ELEMENT a EMPTY>		#
+  	#		<!ELEMENT b EMPTY>		#
+	#	]>					#
+	#===============================================#
+
+	#===============================================================================#
+	#	<?xml version="1.0" encoding="UTF-8"?>					#
+	#	<!DOCTYPE coordenada [ 							#
+	#		<!ELEMENT coordenada ((longitud, latitud) | coordUniversal)>	#
+	#		<!ELEMENT longitud (#PCDATA)>					#
+	#		<!ELEMENT latitud (#PCDATA)>					#
+	#		<!ELEMENT coordUniversal (#PCDATA)>				#
+	#	]									#
+	#===============================================================================#
+
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+  	#		<!ELEMENT ejemplo (a, b?)>	#
+  	#		<!ELEMENT a EMPTY>		#
+  	#		<!ELEMENT b EMPTY>		#
+	#	]>					#
+	#===============================================#
+
+	Cardinalidad
+	============
+	Prohibicion de 0 o más
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+ 	#		<!ELEMENT ejemplo (a*, b)>	#
+  	#		<!ELEMENT a EMPTY>		#
+  	#		<!ELEMENT b EMPTY>		#
+	#	]>					#
+	#===============================================#
+
+	Prohibicion de 1 o más
+	#===============================================#
+	#	<!DOCTYPE ejemplo [ 			#
+	#		<!ELEMENT ejemplo (a+, b)>	#
+  	#		<!ELEMENT a EMPTY>		#
+  	#		<!ELEMENT b EMPTY>		#
+	#		]>				#
+	#===============================================#
+
+Atributos por defecto:
+
+<!ATTLIST nombreElemento nombreAtributo tipoAtributo valorPorDefecto>
+
+<!ATTLIST nombreElemento nombreAtributo1 tipoAtributo1 valorInicialAtributo1>
+<!ATTLIST nombreElemento nombreAtributo2 tipoAtributo2 valorInicialAtributo2>
+
+Equivalente a:
+<!ATTLIST nombreElemento
+  nombreAtributo1 tipoAtributo1 valorInicialAtributo1
+  nombreAtributo2 tipoAtributo2 valorInicialAtributo2
+>
+
+Tipos de valor de atributo:
+- CDATA = cualquier tipo de caracteres
+	<!DOCTYPE ejemplo [ 
+		<!ELEMENT ejemplo EMPTY>
+		<!ATTLIST ejemplo color CDATA #REQUIRED>
+	]>
+	<ejemplo color=""></ejemplo>
+	<ejemplo color="amarillo"></ejemplo> 
+	<ejemplo color="azul marino #000080"></ejemplo>
+
+- ID = identificador de valor unico, no pueden empezar con un numero
+       y su valor no puede repetirse en ningun otro atributo igual
+	<!DOCTYPE ejemplo [ 
+  		<!ELEMENT ejemplo (libro*)>
+  		<!ELEMENT libro (#PCDATA) >
+  		<!ATTLIST libro codigo ID #REQUIRED>
+	]>
+	<ejemplo>
+  		<libro codigo="L1">Poema de Gilgamesh</libro>
+  		<libro codigo="L2">Los preceptos de Ptah-Hotep</libro>
+	</ejemplo>
+
+- IDREF = identificador que apunta a otro identificador de otra tabla
+	<!DOCTYPE ejemplo [ 
+  		<!ELEMENT ejemplo ((libro|prestamo)*)>
+  		<!ELEMENT libro (#PCDATA)>
+  		<!ATTLIST libro codigo ID #REQUIRED>
+  		<!ELEMENT prestamo (#PCDATA) >
+  		<!ATTLIST prestamo libro IDREF #REQUIRED>
+	]>
+	<ejemplo>
+  		<libro codigo="L1">Poema de Gilgamesh</libro>
+  		<prestamo libro="L1">Numa Nigerio</prestamo>
+	</ejemplo>
+
+- IDREFS = 
+
+###==========================================================================###
+###==========================================================================###
+count(//produc[precio>avg(//precio)]/concat('Articulo: ',denominacion))
+//produc[precio>avg(//precio)]/concat('articulo: ',denominacion)
+
+# mostrar la denominacion de los productos que estan bajo minimos, es decir, su stock
+# actual es inferior al minimo
+# //produc[number(stock_actual)<number(stock_minimo)]/concat("Producto",denominacion)
+

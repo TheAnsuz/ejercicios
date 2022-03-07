@@ -3,7 +3,7 @@
 
 (:Obtén por cada sucursal la concatenación de su código y el número de cuentas del tipo 
 AHORRO que tiene:)
-//sucursal/concat(@codigo, " - ",count(//sucursal/cuenta[@tipo="AHORRO"])),
+//sucursal/concat(@codigo, " - ",count(cuenta[@tipo="AHORRO"])),
 
 (:Obtén las cuentas de tipo PENSIONES de la sucursal con código SUC3:)
 //sucursal[@codigo="SUC3"]/cuenta[@tipo="PENSIONES"],

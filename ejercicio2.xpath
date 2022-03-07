@@ -1,0 +1,16 @@
+(:Obtén los datos de las cuentas bancarias cuyo tipo sea AHORRO:)
+//sucursal/cuenta[@tipo="AHORRO"],
+
+(:Obtén por cada sucursal la concatenación de su código y el número de cuentas del tipo 
+AHORRO que tiene:)
+//sucursal/concat(@codigo, " - ",count(//sucursal/cuenta[@tipo="AHORRO"])),
+
+(:Obtén las cuentas de tipo PENSIONES de la sucursal con código SUC3:)
+//sucursal[@codigo="SUC3"]/cuenta[@tipo="PENSIONES"],
+
+(:Obtén por cada sucursal la concatenación de los datos, código sucursal, director y total 
+saldo haber:)
+//sucursal/concat(@codigo," - ",director," - ",sum(cuenta/saldohaber),"€"),
+
+(:Obtén todos los elementos de las sucursales con más de 3 cuentas:)
+//sucursal[count(cuenta) > 3]

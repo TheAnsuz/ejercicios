@@ -21,7 +21,7 @@ public class Matriz1 {
         int index = 0;
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix[y].length; x++) {
-                matrix[y][x] = (int) Math.round(Math.random() * 9);
+                matrix[y][x] = y % 2 == 0 ? 2 * y : 3 * y;
 //                matrix[y][x] = index++;
             }
 
@@ -51,14 +51,14 @@ public class Matriz1 {
         for (int y = 0; y < matrix.length; y++) {
             for (int x = 0; x < matrix[y].length; x++) {
                 if (y == x)
-                    System.out.print(matrix[y][x]+" ");
+                    System.out.print(matrix[y][x] + " ");
                 else
                     System.out.print("  ");
             }
             System.out.println();
         }
     }
-    
+
     public static void main(String[] args) {
         Matriz1 m = new Matriz1();
         m.imprimirMatriz();

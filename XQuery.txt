@@ -1,0 +1,35 @@
+Es literalmente SQL para XML pero con una sintaxis un poco distinta
+Todo lo que se haga con XPath puede hacerse en XQuerry, pero no al reves
+Sintaxis:
+
+    for <variable> in <expresión XPath> 
+    let <variables vinculadas> 
+    where <condición XPath>
+    order by <expresión>
+    return <expresión de salida>
+
+Un ejemplo:
+    for $productos in //produc
+    let $stock_real:=($productos/stock_actual)-($productos/stock_minimo)
+    where $productos/cod_zona=10
+    order by $productos/precio
+    return <stock_real>{$stock_real}</stock_real>
+
+Otro ejemplo:
+    for $emp in /EMPLEADOS/EMP_ROW
+    let $nom:=$emp/APELLIDO, $ofi:=$emp/OFICIO
+    order by $emp/OFICIO
+    return <APEOFI>{concat($nom,' ',$ofi)}</APEOFI>
+Su version de XPath:
+    //EMPLEADOS/EMP_ROW/concat("<APEOFI>",APELLIDO," ",OFICIO,"</APEOFI>")
+
+RETURN:
+    return <APEOFI>{concat($nom,' ',$ofi)}</APEOFI>
+    return $nom
+    return data($nom)
+    return concat($nom,' ',$ofi)
+    return <a>{concat($nom,' ',$ofi)}</a>
+en el return puede haber un condicional:
+    return if ($dep/@tipo='A')
+	    then <tipoA>{data($dep/nombre)}</tipoA>
+	    else ()

@@ -1,4 +1,4 @@
-package me.ansuz.amrv.practicas.practica1;
+package me.ansuz.amrv.practicas.E1;
 
 import java.security.SecureRandom;
 import java.text.DateFormat;

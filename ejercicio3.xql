@@ -27,37 +27,23 @@ return (<depart>{data($dep/nombre)}</depart>,
         <emple>{$num_emp}</emple>);
 
 (:Del ejercicio 3 a todos los de productos:)
-for $prod in //productos
-let $z1 := count($prod/produc[cod_zona=10]),
-$z2 := count($prod/produc[cod_zona=20]),
-$z3 := count($prod/produc[cod_zona=30]),
-$z4 := count($prod/produc[cod_zona=40])
-return ($z1, $z2, $z3, $z4);
+for $zona in distinct-values(//produc/cod_zona)
+	let $num_productos:=count(//produc[cod_zona=$zona])
+	return concat("ZONA->", $zona," PRODUCTOS TOTALES--->", $num_productos);
 
 (:Obtén la denominación de los productos entres las etiquetas <zona10></zona10> si son del 
 código de zona 10, <zona20></zona20> si son de la zona 20, <zona30></zona30> si son de la 30 
 y <zona40></zona40> si son de la 40:)
-for $prod in //productos
-let $z1 := count($prod/produc[cod_zona=10]),
-$z2 := count($prod/produc[cod_zona=20]),
-$z3 := count($prod/produc[cod_zona=30]),
-$z4 := count($prod/produc[cod_zona=40])
-return (<zona10>{$z1}</zona10>,
-<zona20>{$z2}</zona20>,
-<zona30>{$z3}</zona30>,
-<zona40>{$z4}</zona40>);
+for $producto in //produc
+let $zona := $producto/cod_zona
+order by $zona
+return concat('<zona',$zona,'>',data($producto/denominacion),'</zona',$zona,'>');
 
 (:Obtén por cada zona la denominación del o de los productos más caros:)
-for $prod in /productos
-    let $producto := $prod/produc,
-        $p10 := max($prod/produc[cod_zona='10']/precio),
-        $p20 := max($prod/produc[cod_zona='20']/precio),
-        $p30 := max($prod/produc[cod_zona='30']/precio),
-        $p40 := max($prod/produc[cod_zona='40']/precio)
-    return (<zona10>{ $producto[precio=$p10 and cod_zona='10']/denominacion}</zona10>,
-    <zona20>{ $producto[precio=$p20 and cod_zona='20']/denominacion}</zona20>,
-    <zona30>{$producto[precio=$p30 and cod_zona='30']/denominacion}</zona30>,
-    <zona40>{$producto[precio=$p40 and cod_zona='40']/denominacion}</zona40>);
+for $den in /productos/produc/denominacion
+let $zona:=distinct-values(/productos/produc[denominacion=$den]/cod_zona)
+return concat('<zona', $zona, '>', $den, '</zona', $zona, '>');
+
 
 (:Obtén la denominación de los productos contenida entre las etiquetas <placa></placa> para los 
 productos en cuya denominación aparece la palabra Placa Base, <memoria></memoria> para los que contienen a la palabra Memoria <micro></micro>, para los que contienen la palabra Micro y 

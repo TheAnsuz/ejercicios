@@ -56,7 +56,6 @@ return (if (contains($dat,"Placa Base"))
     then <memoria>{$dat}</memoria>
     else <otros>{$dat}</otros>);
 
-(:Utilizando el documento sucursales.xml. Realiza las siguientes consultas XQuery:)
 (:Devuelve el código de sucursal y el número de cuentas que tiene de tipo AHORRO y de tipo PENSIONES:)
 for $suc in /sucursales/sucursal
 let $cuentas_ahorro := count($suc/cuenta[@tipo="AHORRO"]),
@@ -91,7 +90,6 @@ return (if (count($suc/cuenta) > 3)
     </sucursal>
     else ());
 
-(:Devuelve por cada sucursal, el código de sucursal y los datos de las cuentas con más saldo debe:)
 (:Devuelve por cada sucursal, el código de sucursal y los datos de las cuentas con más saldo debe:)
 for $suc in /sucursales/sucursal
 let $cod := data($suc/@codigo),

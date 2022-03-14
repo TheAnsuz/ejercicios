@@ -54,6 +54,8 @@ return (if (contains($dat,"Placa Base"))
   then <placa>{$dat}</placa>
   else if (contains($dat,"Memoria"))
     then <memoria>{$dat}</memoria>
+    else if (contains($dat,'Micro'))
+    then <micro>{$dat}</micro>
     else <otros>{$dat}</otros>);
 
 (:Devuelve el código de sucursal y el número de cuentas que tiene de tipo AHORRO y de tipo PENSIONES:)

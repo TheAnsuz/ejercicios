@@ -188,3 +188,25 @@ where oficinas.objetivo/2 < (
     where repventas.oficina_rep = oficinas.oficina
 );
 
+/* Ejercicios 15-3-22 */
+
+-- mostrar los vendedores (nombre y codigo) cuyo importe de pedido medio
+-- de productos fabricados por ACI, supera el importe de pedido medio
+-- global en la empresa.
+
+select repventas.nombre,repventas.num_empl, avg(pedidos.importe)
+from repventas, pedidos
+where repventas.num_empl=pedidos.rep
+and pedidos.fab like 'ACI'
+group by repventas.num_empl, repventas.nombre
+having avg(pedidos.importe) > (
+        select avg(pedidos.importe)
+        from pedidos
+);
+
+-- mostrar los vendedores (nombre y codigo) cuyo importe de pedido medio
+-- de productos fabricados por ACI, es al menos  tan grande  el importe de 
+-- pedido medio global de ese vendedor
+
+-- mostrar los productos que se han pedido un total de veces que supera el 
+-- 25% de sus existencias

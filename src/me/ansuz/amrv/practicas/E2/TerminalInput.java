@@ -5,6 +5,7 @@
 package me.ansuz.amrv.practicas.E2;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -19,9 +20,9 @@ public class TerminalInput {
     }
 
     public static int getInt(String enunciado) {
-        return getInt(enunciado,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return getInt(enunciado, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
-    
+
     public static int getInt(String enunciado, int min, int max) {
         do {
             TerminalInput.showHeader(enunciado);
@@ -38,11 +39,11 @@ public class TerminalInput {
             }
         } while (true);
     }
-    
+
     public static float getFloat(String enunciado) {
-        return getFloat(enunciado,Float.MIN_VALUE,Float.MAX_VALUE);
+        return getFloat(enunciado, Float.MIN_VALUE, Float.MAX_VALUE);
     }
-    
+
     public static float getFloat(String enunciado, float min, float max) {
         do {
             TerminalInput.showHeader(enunciado);
@@ -61,9 +62,9 @@ public class TerminalInput {
     }
 
     public static String getString(String enunciado) {
-        return getString(enunciado,Integer.MIN_VALUE,Integer.MAX_VALUE);
+        return getString(enunciado, 1, Integer.MAX_VALUE);
     }
-    
+
     public static String getString(String enunciado, int minLength, int maxLength) {
         do {
             TerminalInput.showHeader(enunciado);
@@ -75,13 +76,13 @@ public class TerminalInput {
             else
                 return text;
         } while (true);
-    
+
     }
-    
+
     public static long getLong(String enunciado) {
-        return getLong(enunciado,Long.MIN_VALUE,Long.MAX_VALUE);
+        return getLong(enunciado, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-    
+
     public static long getLong(String enunciado, long min, long max) {
         do {
             TerminalInput.showHeader(enunciado);
@@ -98,11 +99,11 @@ public class TerminalInput {
             }
         } while (true);
     }
-    
+
     public static double getDouble(String enunciado) {
-        return getDouble(enunciado,Double.MIN_VALUE,Double.MAX_VALUE);
+        return getDouble(enunciado, Double.MIN_VALUE, Double.MAX_VALUE);
     }
-    
+
     public static double getDouble(String enunciado, double min, double max) {
         do {
             TerminalInput.showHeader(enunciado);
@@ -117,6 +118,26 @@ public class TerminalInput {
             } catch (NumberFormatException e) {
                 System.err.println("El valor introducido no es numerico");
             }
+        } while (true);
+    }
+
+    /**
+     *
+     * @param enunciado cabecera del texto
+     * @return texto con ese formato
+     */
+    public static String getMatricula(String enunciado) {
+        return getFormat(enunciado, "[0-9]{4}\\-[A-Za-z]{3}");
+    }
+
+    public static String getFormat(String enunciado, String regex) {
+        final Pattern patron = Pattern.compile(regex);
+        do {
+            String input = TerminalInput.getString(enunciado, 1, 256);
+            if (patron.matcher(input).matches())
+                return input;
+            else
+                System.err.println("El texto no sigue el patron requerido");
         } while (true);
     }
 }

@@ -10,6 +10,4 @@ package me.ansuz.amrv.practicas.E2;
  */
 public class TerminalOperator {
     
-    
-    
 }

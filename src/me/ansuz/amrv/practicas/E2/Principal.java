@@ -8,6 +8,13 @@ package me.ansuz.amrv.practicas.E2;
  *
  * @author marruiad
  */
-public class TerminalOperator {
+public class Principal {
     
+    public static Maquina maquina;
+    public static Terminal terminal;
+    
+    public static void main(String[] args) {
+        maquina = new Maquina(.5d, "Parking Son",3,20);
+        terminal = new Terminal(maquina);
+    }
 }

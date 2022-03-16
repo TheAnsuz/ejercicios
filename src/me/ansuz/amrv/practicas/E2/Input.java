@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  *
  * @author marruiad
  */
-public class TerminalInput {
+public class Input {
 
     private static final Scanner scan = new Scanner(System.in);
 
@@ -25,7 +25,7 @@ public class TerminalInput {
 
     public static int getInt(String enunciado, int min, int max) {
         do {
-            TerminalInput.showHeader(enunciado);
+            Input.showHeader(enunciado);
             try {
                 int num = Integer.parseInt(scan.nextLine());
                 if (num >= min && num <= max)
@@ -46,7 +46,7 @@ public class TerminalInput {
 
     public static float getFloat(String enunciado, float min, float max) {
         do {
-            TerminalInput.showHeader(enunciado);
+            Input.showHeader(enunciado);
             try {
                 float num = Float.parseFloat(scan.nextLine());
                 if (num >= min && num <= max)
@@ -67,7 +67,7 @@ public class TerminalInput {
 
     public static String getString(String enunciado, int minLength, int maxLength) {
         do {
-            TerminalInput.showHeader(enunciado);
+            Input.showHeader(enunciado);
             String text = scan.nextLine().trim().replaceAll("[\\s]{2,}", " ");
             if (text.length() < minLength || text.length() > maxLength)
                 System.err.println("El texto debe de tener "
@@ -85,7 +85,7 @@ public class TerminalInput {
 
     public static long getLong(String enunciado, long min, long max) {
         do {
-            TerminalInput.showHeader(enunciado);
+            Input.showHeader(enunciado);
             try {
                 long num = Long.parseLong(scan.nextLine());
                 if (num >= min && num <= max)
@@ -106,7 +106,7 @@ public class TerminalInput {
 
     public static double getDouble(String enunciado, double min, double max) {
         do {
-            TerminalInput.showHeader(enunciado);
+            Input.showHeader(enunciado);
             try {
                 double num = Double.parseDouble(scan.nextLine());
                 if (num >= min && num <= max)
@@ -133,7 +133,7 @@ public class TerminalInput {
     public static String getFormat(String enunciado, String regex) {
         final Pattern patron = Pattern.compile(regex);
         do {
-            String input = TerminalInput.getString(enunciado, 1, 256);
+            String input = Input.getString(enunciado, 1, 256);
             if (patron.matcher(input).matches())
                 return input;
             else

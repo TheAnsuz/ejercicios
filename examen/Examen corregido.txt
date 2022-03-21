@@ -1,0 +1,71 @@
+Adrián Martín Ruiz del Valle - Examen XML
+
+1. EJERCICIO 1. (1,75 PUNTOS). REALIZA LAS SIGUIENTES CONSULTAS CON XPATH:
+a. ¿Cuántos países diferentes hay en el fichero de compradores.xml?
+>>> concat('Hay ',count(distinct-values(//comprador/pais)), ' paises distintos')
+
+b.- ¿Cuáles son los nombres completos de los compradores cuyo nombre empieza por A?
+>>> //comprador[starts-with(nombre,'A')]/concat(nombre,' ',apellido)
+
+c.- ¿Cuál es el nombre de las chicas son de Monfort Heights?
+>>> //comprador[@genero='FEMALE' and ciudad='Monfort Heights']/concat(nombre,' es una chica de ',ciudad)
+
+
+
+2. EJERCICIO 2. XQUERY (2,5 PUNTOS)
+a.- Queremos generar un nuevo XML con el siguiente formato a partir de compradores.xml:
+<listado>
+	<ciudad nombre="xxxx">
+ 		<hombres>número de hombres</hombres>
+ 		<mujeres>número de mujeres</mujeres>
+ 	</ciudad>
+ 	<ciudad nombre="yyyy">
+ 		<hombres>número de hombres</hombres>
+ 		<mujeres>número de mujeres</mujeres>
+ 	</ciudad>
+ .....
+</listado>
+(:No he sido capaz de hacer que la etiqueta <ciudad> contenga el atributo nombre:)
+<listado>{
+  for $ciudad in distinct-values(//comprador/ciudad)
+  let $hombres := count(//comprador[ciudad=$ciudad and @genero='MALE'])
+  let $mujeres := count(//comprador[ciudad=$ciudad and @genero='FEMALE']) 
+  return <ciudad nombre='{$ciudad}'>
+           <hombres>{$hombres}</hombres>
+           <mujeres>{$mujeres}</mujeres>
+         </ciudad>
+}</listado> 
+
+
+b.- sobre ventas.xml ¿Cuál es el promedio del precio_unidad por cada 
+id_producto en el total de ventas?
+for $id in distinct-values(//venta/id_producto)
+let $media := avg(//venta[id_producto=$id]/precio_unidad)
+return concat('ID de producto: ',$id,' > ',$media)
+
+
+
+3. EJERCICIO 3 (1,75 PUNTOS) (Gracias a ismael por el ejercicio mejor explicado)
+1. <cosasPorHacer> solo puede contener un elemento <cosa>. Para solucionarlo
+   deberemos cambiarlo de la siguiente forma: <!ELEMENT cosasPorHacer (cosa+)>
+   si queremos que pueda haber un elemento o más.
+
+2. <cosa> está definido como un elemento vacío. Sin embargo, en
+   el XML, dentro de <cosa> podemos encontrar datos.
+   Para solucionarlo, eliminaremos el EMPTY del DTD y lo transformaremos a PCDATA:
+   <!ELEMENT cosa (#PCDATA)>
+
+3. existe un atributo 'asunto' que es obligatorio para el elemento
+   <cosa>. Sin embargo, no está presente.
+   Deberemos eliminar el #REQUIRED en 'asunto'
+   -> <!ATTLIST cosa asunto CDATA>.
+
+RESULTADO FINAL:
+<!DOCTYPE cosasPorHacer [
+ <!ELEMENT cosasPorHacer (cosa+)>
+ <!ELEMENT cosa (#PCDATA)>
+ <!ATTLIST cosa fecha CDATA #REQUIRED>
+ <!ATTLIST cosa asunto CDATA>
+ <!ATTLIST cosa fechaLimite CDATA #REQUIRED>
+]>
+

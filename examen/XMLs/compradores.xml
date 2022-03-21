@@ -1,0 +1,230 @@
+<compradores>
+    <comprador genero="MALE" id="1">
+        <nombre>Gricelda</nombre>
+        <apellido>Luebbers</apellido>
+        <ciudad>Tanquecitos</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="2">
+        <nombre>Dean</nombre>
+        <apellido>Bollich</apellido>
+        <ciudad>Sugarloaf</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="3">
+        <nombre>Milo</nombre>
+        <apellido>Manoni</apellido>
+        <ciudad>Dale City</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="4">
+        <nombre>Laurice</nombre>
+        <apellido>Karl</apellido>
+        <ciudad>Grosvenor</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="5">
+        <nombre>August</nombre>
+        <apellido>Rupel</apellido>
+        <ciudad>Riverside</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="6">
+        <nombre>Salome</nombre>
+        <apellido>Guisti</apellido>
+        <ciudad>Ridgeley</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="7">
+        <nombre>Lovie</nombre>
+        <apellido>Ritacco</apellido>
+        <ciudad>Ashley Heights</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="8">
+        <nombre>Chaya</nombre>
+        <apellido>Greczkowski</apellido>
+        <ciudad>Monfort Heights</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="9">
+        <nombre>Twila</nombre>
+        <apellido>Coolbeth</apellido>
+        <ciudad>Point Marion</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="10">
+        <nombre>Carlotta</nombre>
+        <apellido>Achenbach</apellido>
+        <ciudad>Eldon</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="11">
+        <nombre>Jeraldine</nombre>
+        <apellido>Audet</apellido>
+        <ciudad>Greendale</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="12">
+        <nombre>August</nombre>
+        <apellido>Arouri</apellido>
+        <ciudad>Ammon</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="13">
+        <nombre>Ward</nombre>
+        <apellido>Stepney</apellido>
+        <ciudad>Wallsburg</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="14">
+        <nombre>Ayana</nombre>
+        <apellido>Barkhurst</apellido>
+        <ciudad>De Pue</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="15">
+        <nombre>Luana</nombre>
+        <apellido>Berends</apellido>
+        <ciudad>Prompton</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="16">
+        <nombre>Lecia</nombre>
+        <apellido>Alvino</apellido>
+        <ciudad>New Rockford</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="17">
+        <nombre>Joleen</nombre>
+        <apellido>Himmelmann</apellido>
+        <ciudad>Tygh Valley</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="18">
+        <nombre>Monty</nombre>
+        <apellido>Kinnamon</apellido>
+        <ciudad>Lookout</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="MALE" id="19">
+        <nombre>Dania</nombre>
+        <apellido>Grizzard</apellido>
+        <ciudad>Hermiston</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="20">
+        <nombre>Inez</nombre>
+        <apellido>Yamnitz</apellido>
+        <ciudad>Mendota Heights</ciudad>
+        <pais>United States</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="21">
+        <nombre>Dean</nombre>
+        <apellido>Ritacco</apellido>
+        <ciudad>Riverside</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="MALE" id="22">
+        <nombre>Milo</nombre>
+        <apellido>Greczkowski</apellido>
+        <ciudad>Ridgeley</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="23">
+        <nombre>Laurice</nombre>
+        <apellido>Coolbeth</apellido>
+        <ciudad>Ashley Heights</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="MALE" id="24">
+        <nombre>August</nombre>
+        <apellido>Achenbach</apellido>
+        <ciudad>Monfort Heights</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="25">
+        <nombre>Salome</nombre>
+        <apellido>Audet</apellido>
+        <ciudad>Point Marion</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="MALE" id="26">
+        <nombre>Lovie</nombre>
+        <apellido>Arouri</apellido>
+        <ciudad>Eldon</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="27">
+        <nombre>Chaya</nombre>
+        <apellido>Stepney</apellido>
+        <ciudad>Greendale</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="MALE" id="28">
+        <nombre>Twila</nombre>
+        <apellido>Barkhurst</apellido>
+        <ciudad>Ammon</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="29">
+        <nombre>Carlotta</nombre>
+        <apellido>Berends</apellido>
+        <ciudad>Wallsburg</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="MALE" id="30">
+        <nombre>Luana</nombre>
+        <apellido>Alvino</apellido>
+        <ciudad>De Pue</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="31">
+        <nombre>Lecia</nombre>
+        <apellido>Himmelmann</apellido>
+        <ciudad>Prompton</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="MALE" id="32">
+        <nombre>Joleen</nombre>
+        <apellido>Kinnamon</apellido>
+        <ciudad>New Rockford</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="33">
+        <nombre>Monty</nombre>
+        <apellido>Grizzard</apellido>
+        <ciudad>Riverside</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="34">
+        <nombre>Dania</nombre>
+        <apellido>Yamnitz</apellido>
+        <ciudad>Ridgeley</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="35">
+        <nombre>Inez</nombre>
+        <apellido>Audet</apellido>
+        <ciudad>Ashley Heights</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="36">
+        <nombre>Dean</nombre>
+        <apellido>Arouri</apellido>
+        <ciudad>Monfort Heights</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="37">
+        <nombre>Milo</nombre>
+        <apellido>Stepney</apellido>
+        <ciudad>Point Marion</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+    <comprador genero="FEMALE" id="38">
+        <nombre>Laurice</nombre>
+        <apellido>Barkhurst</apellido>
+        <ciudad>Eldon</ciudad>
+        <pais>Canada</pais>
+    </comprador>
+</compradores>

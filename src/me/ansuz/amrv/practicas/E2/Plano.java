@@ -17,6 +17,10 @@ public class Plano {
 
     public Plano(int pisos, int plazasPorPiso) {
         parking = new int[pisos][plazasPorPiso];
+        // Rellenar el array para hacer pruebas
+        for (int y = 0; y < parking.length; y++)
+            for (int x = 0; x < parking[y].length; x++)
+                parking[y][x] = 0;
     }
 
     public int getPisos() {
@@ -43,22 +47,41 @@ public class Plano {
         return parking[planta - 1][plaza - 1] > 0;
     }
 
+    public void setLibre(Ubicacion ubi) {
+        setLibre(ubi.getPlanta(), ubi.getPlaza());
+    }
+
+    public void setLibre(int planta, int plaza) {
+        parking[planta - 1][plaza - 1] = 0;
+    }
+
     public boolean hasLibre() {
         return this.getLibre() == null;
     }
 
     public Ubicacion getLibre() {
         for (int y = 1; y <= parking.length; y++)
-            for (int x = 1; x <= parking[y].length; x++) {
+            for (int x = 1; x <= parking[y - 1].length; x++) {
+//                System.out.println((y-1)+"y " + (x-1) +"x " + parking[y-1][x-1] + " - " + this.isOcupada(y, x));
                 if (!this.isOcupada(y, x))
                     return new Ubicacion(y, x);
             }
         return null;
     }
 
+    public Ticket estacionar(String matricula, int planta, int plaza) {
+        return estacionar(matricula, new Ubicacion(planta, plaza));
+    }
+
+    public Ticket estacionar(String matricula, Ubicacion ubicacion) {
+        final Ticket ticket = new Ticket(matricula, ubicacion);
+        parking[ubicacion.getPlanta() - 1][ubicacion.getPlaza() - 1] = ticket.getId();
+        return ticket;
+    }
+
     @Override
     public String toString() {
-        
+
         String temp = "";
         for (int y = 0; y < parking.length; y++) {
             temp += Arrays.toString(parking[y]) + ',' + System.lineSeparator();

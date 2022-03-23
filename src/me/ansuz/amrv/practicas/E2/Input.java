@@ -74,7 +74,7 @@ public class Input {
                         + (minLength == maxLength ? minLength + " caracteres"
                                 : "entre " + minLength + " y " + maxLength + " caracteres"));
             else
-                return text;
+                return text.toUpperCase();
         } while (true);
 
     }

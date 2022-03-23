@@ -39,22 +39,48 @@ public final class Terminal {
     }
 
     public void estacionarVehiculo() {
-        if (!maquina.getPlano().hasLibre())
+        if (maquina.getPlano().hasLibre())
             System.err.println(">>> No hay espacio");
+        else {
+            String matricula;
+            do {
+                matricula = Input.getMatricula("Matricula del vehiculo (0000-XXX):");
+                if (maquina.hasMatricula(matricula))
+                    System.err.println("Ya existe un vehiculo con esa matricula en el parking");
+            } while (maquina.hasMatricula(matricula));
+            final Ticket resultado = maquina.getPlano().estacionar(matricula, maquina.getPlano().getLibre());
+            System.out.println("Generando ticket...");
+            Terminal.pause(500);
+            maquina.addTicket(resultado);
+            System.out.println(resultado);
+            System.out.println();
+        }
         mostrarPlano();
-        
+
     }
 
     public void sacarVehiculo() {
-        System.out.println("Vehiculo sacado");
-
+        int id = 0;
+        do {
+        id = Input.getInt("Introduce la ID del ticket:", 1, maquina.getPlano().getPisos() * maquina.getPlano().getPlazas());
+        if (!maquina.hasTicketID(id))
+                System.err.println("Ticket no reconocido");
+        
+        } while (!maquina.hasTicketID(id));
+        final Ticket ticket = maquina.getTicket(id);
+        final double coste = maquina.getCoste(ticket);
+        System.out.println("Total a pagar: " + coste);
+        
+        // Aqui es donde el usuario debe de introducir el cambio y toda la pesca
+        
+        maquina.removeTicket(ticket);
     }
 
     public void mostrarPlano() {
         System.out.println(maquina.getPlano().toString());
     }
-    
-    private static void pausa(long milis) {
+
+    private static void pause(long milis) {
         try {
             Thread.sleep(milis);
         } catch (InterruptedException ex) {

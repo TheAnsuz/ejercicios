@@ -13,12 +13,14 @@ return (<producto>
   <zona>{data($n_zon)}</zona>
 </producto>)
 
+;
 (:Obtén por cada zona, el nombre de zona y el número de productos que tiene:)
 
 for $zona in /zonas/zona
 let $producs := count(/productos/produc[cod_zona=$zona/cod_zona])
 return concat($zona/nombre,' -> ',$producs)
 
+;
 (:Obtén por cada zona, el nombre de la zona, su código y el nombre del producto con menos stock actual:)
 for $zona in /zonas/zona
 let $nombre := $zona/nombre

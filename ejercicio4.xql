@@ -32,6 +32,7 @@ return
     <producto>{data($produc)}</producto>
   </zona>
 ;
+(:Ejercicios con varios bucles anidados:)
 (:Cuantos empleados hay por cada puesto de cada departamento:)
 for $dep in /universidad/departamento 
   for $pue in distinct-values($dep/empleado/puesto)

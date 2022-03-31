@@ -13,27 +13,31 @@ DROP TABLE claustro;
 DROP TABLE personal;
 
 CREATE TABLE cursos (
-    codigo_curso char(3) PRIMARY KEY CHECK (codigo_curso = UPPER(codigo_curso)),
+    codigo_curso char(3) PRIMARY KEY,
     nombre_curso varchar2(30) NOT NULL,
     descripcion_curso varchar2(30),
     creditos number DEFAULT 0,
-    tarifa number DEFAULT 0 CHECK (REGEXP_LIKE(tarifa, \ d.\ d { 2 }))
+    tarifa number DEFAULT 0.00,
+    constraint codigo_curso_mayusc CHECK (codigo_curso = UPPER(codigo_curso)),
+    constraint tarifa_regex CHECK (REGEXP_LIKE(tarifa, '\d+\.\d{2}'))
 );
 
 CREATE TABLE departamentos (
     codigo_departamento char(4) PRIMARY KEY,
     edificio varchar2(2) NOT NULL,
-    despacho number NOT NULL
+    despacho number NOT NULL,
+    constraint codigo_departamento_mayusc CHECK (codigo_departamento = UPPER(codigo_departamento))
 );
 
 CREATE TABLE clases (
-    codigo_curso char(3) NOT NULL CONSTRAINT FK_CLASE_CURSO REFERENCES cursos(codigo_curso),
+    codigo_curso char(3) NOT NULL,
     seccion varchar2(2) NOT NULL,
     dia varchar(10) NOT NULL,
     hora varchar(5) NOT NULL,
     edificio varchar2(2) NOT NULL,
     despacho number NOT NULL,
-    CONSTRAINT PK_CLASE PRIMARY KEY (codigo_curso, seccion)
+    CONSTRAINT FK_CLASE_CURSO REFERENCES cursos(codigo_curso),
+    CONSTRAINT PK_CLASE PRIMARY KEY (codigo_curso, seccion) 
 );
 
 CREATE TABLE estudiantes (

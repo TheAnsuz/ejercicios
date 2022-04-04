@@ -9,12 +9,14 @@ package me.ansuz.amrv.practicas.E2;
  * @author marruiad
  */
 public class Principal {
-    
-    public static Maquina maquina;
-    public static Terminal terminal;
-    
-    public static void main(String[] args) {
-        maquina = new Maquina(.5d, "Parking Son",3,20);
-        terminal = new Terminal(maquina);
-    }
+
+	public static Maquina maquina;
+	public static Terminal terminal;
+
+	public static void main(String[] args) {
+		// Maquina (precio/minuto, nombre, plantas, plazas, deposito inicial)
+		maquina = new Maquina(.5d, "Parking Son", 3, 20, 100);
+		// La terminal intermediaria entre el usuario y la maquia del parking
+		terminal = new Terminal(maquina);
+	}
 }

@@ -10,18 +10,37 @@ package me.ansuz.amrv.practicas.E2;
  */
 public class Ubicacion {
 
+	/**
+	 * Planta del parking
+	 */
     private final int planta;
+    /**
+     * Plaza del parking
+     */
     private final int plaza;
 
+    /**
+     * Crea una ubicacion dada una planta y una plaza, estas estan en una base 1
+     * @param planta planta del parking
+     * @param plaza plaza del parking
+     */
     public Ubicacion(int planta, int plaza) {
         this.planta = planta;
         this.plaza = plaza;
     }
 
+    /**
+     * Obtiene la planta de la ubicacion
+     * @return planta de la ubicacion
+     */
     public int getPlanta() {
         return planta;
     }
 
+    /**
+     * Obtiene la plaza de la ubicacion
+     * @return plaza de la ubicacion
+     */
     public int getPlaza() {
         return plaza;
     }

@@ -13,44 +13,94 @@ import java.time.format.DateTimeFormatter;
  */
 public class Ticket {
 
-    private static int STATIC_ID = 0;
-    private final static DateTimeFormatter fechas = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+	/**
+	 * Identificador privado
+	 */
+	private static int STATIC_ID = 0;
+	/**
+	 * Formateador de LocalDateTime
+	 */
+	private final static DateTimeFormatter fechas = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
 
-    private static int getID() {
-        return ++STATIC_ID;
-    }
+	/**
+	 * Obtiene la proxima id
+	 * 
+	 * @return
+	 */
+	private static int getID() {
+		return ++STATIC_ID;
+	}
 
-    private final int id;
-    private final LocalDateTime fechaHora;
-    private final String matricula;
-    private final Ubicacion ubicacion;
+	/**
+	 * La id del ticket
+	 */
+	private final int id;
+	/**
+	 * La fecha de creacion del ticket
+	 */
+	private final LocalDateTime fechaHora;
+	/**
+	 * La matricula almacenada en el ticket
+	 */
+	private final String matricula;
+	/**
+	 * La ubicacion del vehiculo en el parking
+	 */
+	private final Ubicacion ubicacion;
 
-    public Ticket(String matricula, Ubicacion ubicacion) {
-        this.id = Ticket.getID();
-        this.matricula = matricula;
-        this.ubicacion = ubicacion;
-        this.fechaHora = LocalDateTime.now();
-    }
+	/**
+	 * Crea un ticket para el vehiculo determinado con su matricula y ubicacion
+	 * 
+	 * @param matricula matricula del vehiculo
+	 * @param ubicacion ubicacion del vehiculo
+	 */
+	public Ticket(String matricula, Ubicacion ubicacion) {
+		this.id = Ticket.getID();
+		this.matricula = matricula;
+		this.ubicacion = ubicacion;
+		this.fechaHora = LocalDateTime.now();
+	}
 
-    public int getId() {
-        return id;
-    }
+	/**
+	 * Obtiene la id del ticket
+	 * 
+	 * @return id del ticket
+	 */
+	public int getId() {
+		return id;
+	}
 
-    public String getMatricula() {
-        return matricula;
-    }
+	/**
+	 * Obtiene la matricula del ticket
+	 * 
+	 * @return matricula del ticket
+	 */
+	public String getMatricula() {
+		return matricula;
+	}
 
-    public Ubicacion getUbicacion() {
-        return ubicacion;
-    }
+	/**
+	 * Obtiene la ubicacion del ticket
+	 * 
+	 * @return ubicacion del ticket
+	 */
+	public Ubicacion getUbicacion() {
+		return ubicacion;
+	}
 
-    public LocalDateTime getFechaHora() {
-        return fechaHora;
-    }
+	/**
+	 * Obtiene la fecha y hora del ticket
+	 * 
+	 * @return fecha y hora del ticket
+	 */
+	public LocalDateTime getFechaHora() {
+		return fechaHora;
+	}
 
-    @Override
-    public String toString() {
-        return "Ticket{" + "id=" + id + ", fechaHora=" + fechaHora.format(fechas) + ", matricula=" + matricula + ", ubicacion=" + ubicacion + '}';
-    }
+	@Override
+	public String toString() {
+		return "Ticket{" + "id=" + id + ", fechaHora=" + fechaHora.format(fechas) + ", matricula=" + matricula
+				+ ", ubicacion=" + ubicacion + '}';
+	}
 
 }

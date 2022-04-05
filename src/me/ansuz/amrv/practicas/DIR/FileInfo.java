@@ -68,6 +68,10 @@ public class FileInfo {
 		return date + DATE_TYPE + type + String.format(TYPE_SIZE + "%-" + length + "s", size);
 	}
 
+        public int getLength() {
+            return this.getSize().length();
+        }
+                
 	private String construct(int minLength) {
 		if (!this.details)
 			return this.getPath();

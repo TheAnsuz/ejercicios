@@ -4,6 +4,10 @@
  */
 package me.ansuz.amrv.t8;
 
+import java.awt.event.ItemEvent;
+import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author marruiad
@@ -13,8 +17,18 @@ public class Frases extends javax.swing.JFrame {
     /**
      * Creates new form Dolor
      */
+    private final JFileChooser fileChooser;
+    private DefaultListModel<String> model;
+
     public Frases() {
+        fileChooser = new JFileChooser();
+        fileChooser.setVisible(false);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        fileChooser.setApproveButtonText("Seleccionar");
         initComponents();
+        model = new DefaultListModel<>();
+        list.setModel(model);
+
     }
 
     /**
@@ -38,6 +52,8 @@ public class Frases extends javax.swing.JFrame {
         buttonGuardar = new javax.swing.JButton();
         buttonCargar = new javax.swing.JButton();
         interiorPanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        list = new javax.swing.JList<>();
         desplegable = new javax.swing.JComboBox<>();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
@@ -58,9 +74,18 @@ public class Frases extends javax.swing.JFrame {
 
         texto.setText("Frase");
 
-        inputFrase.setText("jTextField1");
+        inputFrase.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                inputFraseKeyPressed(evt);
+            }
+        });
 
         buttonAdd.setText("Agregar");
+        buttonAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonAddMouseClicked(evt);
+            }
+        });
 
         buttonDelete.setText("Eliminar");
         buttonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -90,18 +115,29 @@ public class Frases extends javax.swing.JFrame {
             }
         });
 
+        list.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(list);
+
         javax.swing.GroupLayout interiorPanelLayout = new javax.swing.GroupLayout(interiorPanel);
         interiorPanel.setLayout(interiorPanelLayout);
         interiorPanelLayout.setHorizontalGroup(
             interiorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane3)
         );
         interiorPanelLayout.setVerticalGroup(
             interiorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane3)
         );
 
-        desplegable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        desplegable.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                desplegableItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,6 +185,9 @@ public class Frases extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        desplegable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Frases", "Archivos"}));
+        desplegable.setSelectedIndex(0);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -167,6 +206,34 @@ public class Frases extends javax.swing.JFrame {
     private void buttonCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCargarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCargarActionPerformed
+
+    private void desplegableItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_desplegableItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == ItemEvent.SELECTED)
+            switch (evt.getItem().toString().toLowerCase()) {
+                case "archivos":
+                    break;
+                case "frases":
+                default:
+                    break;
+            }
+    }//GEN-LAST:event_desplegableItemStateChanged
+
+    private void buttonAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonAddMouseClicked
+        if (inputFrase.getText().isEmpty())
+            return;
+        model.addElement(inputFrase.getText());
+        inputFrase.setText(null);
+
+    }//GEN-LAST:event_buttonAddMouseClicked
+
+    private void inputFraseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputFraseKeyPressed
+        if (evt.getKeyCode() == 13 && !inputFrase.getText().isEmpty()) {
+            model.addElement(inputFrase.getText());
+            inputFrase.setText(null);
+        }
+
+    }//GEN-LAST:event_inputFraseKeyPressed
 
     /**
      * @param args the command line arguments
@@ -217,6 +284,8 @@ public class Frases extends javax.swing.JFrame {
     private javax.swing.JList<String> jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList<String> list;
     private javax.swing.JLabel texto;
     // End of variables declaration//GEN-END:variables
 }

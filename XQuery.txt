@@ -1,5 +1,5 @@
 Es literalmente SQL para XML pero con una sintaxis un poco distinta
-Todo lo que se haga con XPath puede hacerse en XQuerry, pero no al reves
+Todo lo que se haga con XPath puede hacerse en XQuery, pero no al reves
 Sintaxis:
 
     for <variable> in <expresión XPath> 
@@ -33,3 +33,78 @@ en el return puede haber un condicional:
     return if ($dep/@tipo='A')
 	    then <tipoA>{data($dep/nombre)}</tipoA>
 	    else ()
+
+Modificar elementos usando xquery
+update insert ELEMENTO into EXPRESION 
+update insert ELEMENTO following EXPRESION 
+update insert ELEMENTO preceding EXPRESION
+update insert attribute ELEMENTO into EXPRESION
+
+Ejemplo:
+update insert 
+    <zona>
+        <codzona>50</codzona> 
+        <nombre>Madrid-OESTE </nombre> 
+        <director>Alicia Ramos Martin</director>
+    </zona> 
+    into /zonas
+
+Ejemplo con condicional:
+
+update insert 
+    <zona>
+        <codzona>50</codzona> 
+        <nombre>Madrid-OESTE </nombre> 
+        <director>Alicia Ramos Martin</director>
+    </zona> 
+    preceding //zona[cod_zona=40]
+
+update insert 
+    <cuenta tipo="PENSIONES">
+        <nombre>Alberto Morales </nombre>
+        <numero>30302900</numero> 
+        <aportacion>5000</aportacion>
+    </cuenta> 
+    into /sucursales/sucursal[@codigo="SUC1"]
+
+Uso de replace (replaza un unico nodo):
+
+update replace NODO with VALOR NUEVO
+
+update replace 
+    /zonas/zona[codzona=50]/director 
+    with 
+        <directora>Pilar Martin Ramos</directora>
+
+update replace 
+    /departamentos/DEP_ROW[DEPT_NO=10] 
+    with 
+        <DEP_ROW>
+            <DEPT_NO>10</DEPT_NO>
+            <DNOMBRE>NUEVO10</DNOMBRE>
+            <LOC>TALAVERA</LOC>
+        </DEP_ROW>
+
+Update para un valor especifico:
+
+update value NODO with 'VALOR NUEVO'
+
+update 
+    value /sucursales/sucursal[@codigo='SUC3']/cuenta[1]/@tipo 
+    with 'NUEVOTIPO'
+
+update 
+    value /sucursales/sucursal[@codigo='SUC3']/cuenta[@tipo="PENSIONES"]/aportacion
+    with 5555
+
+for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10]
+let $sal:=$em/SALARIO
+return update value $em/SALARIO with data($sal)+200
+
+for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10]
+let $sal:=$em/SALARIO
+return update value $sal with $sal+200
+
+for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10]
+let $sal:=$em/SALARIO/text()
+return update value $em/SALARIO with $sal+200

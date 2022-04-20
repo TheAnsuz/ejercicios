@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package me.ansuz.amrv.practicas.E2;
+package org.amrv.estudios.ejerciciosmaven.practicas.E2;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -136,7 +136,7 @@ public final class Terminal {
 	 */
 	private Map<Moneda, Integer> getDineroIntroducido() {
 		// Texto conteniendo todos los tipos de moneda, hecho para que en caso de que se
-		// añada un tipo de moneda se ajuste automaticamente sin necesidad
+		// aï¿½ada un tipo de moneda se ajuste automaticamente sin necesidad
 		// de que nadie cambie este codigo
 		String tipos = "(";
 		for (Moneda moneda : Moneda.values()) {
@@ -152,7 +152,7 @@ public final class Terminal {
 				.split(" ");
 		Map<Moneda, Integer> introducido = new HashMap<Moneda, Integer>();
 		int index = 0;
-		// Añade las monedas al dinero introducido
+		// Aï¿½ade las monedas al dinero introducido
 		for (Moneda moneda : Moneda.values()) {
 			introducido.put(moneda, Integer.parseInt(monedas[index++]));
 		}

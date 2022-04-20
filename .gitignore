@@ -5,3 +5,4 @@
 .classpath
 build.xml
 manifest.mf
+/target/

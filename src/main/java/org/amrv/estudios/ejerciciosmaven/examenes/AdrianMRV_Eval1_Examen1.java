@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package me.ansuz.amrv.examenes;
+package org.amrv.estudios.ejerciciosmaven.examenes;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -66,7 +62,7 @@ public class AdrianMRV_Eval1_Examen1 {
                     System.out.print("1");
                 else
                     System.out.print("·");
-                if (a == meta-1)
+                if (a == meta - 1)
                     System.out.println("|");
             }
 
@@ -76,7 +72,7 @@ public class AdrianMRV_Eval1_Examen1 {
                     System.out.print("2");
                 else
                     System.out.print("·");
-                if (b == meta-1)
+                if (b == meta - 1)
                     System.out.println("|");
             }
 
@@ -92,7 +88,7 @@ public class AdrianMRV_Eval1_Examen1 {
                 Logger.getLogger(AdrianMRV_Eval1_Examen1.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        }while (caballoA < meta && caballoB < meta);
+        } while (caballoA < meta && caballoB < meta);
 
         // Poner el ganador con un valor ternario, por usarlos ya que los hemos dado
         // No es necesario prevenir un empate ya que al solo moverse un caballo SI o SI va a haber uno

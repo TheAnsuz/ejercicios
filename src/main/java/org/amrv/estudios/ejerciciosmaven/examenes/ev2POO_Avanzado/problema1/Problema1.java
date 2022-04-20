@@ -1,4 +1,4 @@
-package me.ansuz.amrv.examenes.ev2POO_Avanzado.problema1;
+package org.amrv.estudios.ejerciciosmaven.examenes.ev2POO_Avanzado.problema1;
 
 import java.util.Collections;
 import java.util.List;
@@ -47,7 +47,9 @@ public class Problema1 {
     }
 
     /**
-     * Crea un alumno dandole valores predefinidos y notas aleatorias para testeo
+     * Crea un alumno dandole valores predefinidos y notas aleatorias para
+     * testeo
+     *
      * @param nombre el nombre del alumno
      * @param apellidos los apellidos del alumno
      * @return el objeto alumno con sus asignaturas

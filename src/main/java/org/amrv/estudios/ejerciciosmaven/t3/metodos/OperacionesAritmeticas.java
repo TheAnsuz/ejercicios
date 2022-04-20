@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package me.ansuz.amrv.t3.metodos;
+package org.amrv.estudios.ejerciciosmaven.t3.metodos;
 
 import java.util.Scanner;
 
@@ -22,69 +18,69 @@ public class OperacionesAritmeticas {
         Trabajar con las opciones del menu como char
      */
     private static final Scanner scan = new Scanner(System.in);
-    
+
     public static void main(String[] args) {
-        double a = obtenerNumero("Introduce el primer numero: ",0,10);
-        double b = obtenerNumero("Introduce el segundo numero: ",0,10);;
+        double a = obtenerNumero("Introduce el primer numero: ", 0, 10);
+        double b = obtenerNumero("Introduce el segundo numero: ", 0, 10);;
         char operacion = obtenerOperacion("Introduce la operacion que desea realizar (+,-,*,/,%): ");
         switch (operacion) {
             case '+':
-                System.out.println("Suma: " + (a+b));
+                System.out.println("Suma: " + (a + b));
                 break;
             case '-':
-                System.out.println("Resta: " + (a-b));
+                System.out.println("Resta: " + (a - b));
                 break;
             case '*':
-                System.out.println("Multiplicacion: " + (a*b));
+                System.out.println("Multiplicacion: " + (a * b));
                 break;
             case '/':
-                System.out.println("Division: " + (a/b));
+                System.out.println("Division: " + (a / b));
                 break;
             case '%':
-                System.out.println("Resto: " + (a%b));
+                System.out.println("Resto: " + (a % b));
                 break;
             default:
                 System.out.println("La operacion no ha salido bien");
                 break;
         }
     }
-    
-    public static double obtenerNumero(String texto,double min, double max) {
+
+    public static double obtenerNumero(String texto, double min, double max) {
         Double num;
         do {
             System.out.print(texto);
             num = scan.nextDouble();
-            
+
             if (num < min || num > max) {
                 System.err.println("El valor introducido no es valido");
             }
-            
+
         } while (num == null || num < min || num > max);
         scan.nextLine(); // arreglar el fallo de linea con valores numericos
         return num;
     }
-    
+
     public static char obtenerOperacion(String texto) {
         char resultado = '\0';
         boolean valido = false;
         do {
             System.out.print(texto);
             String linea = scan.nextLine();
-            
+
             if (validarChar(linea)) {
                 valido = true;
                 resultado = linea.charAt(0);
             } else
                 System.err.println("El valor introducido no es valido");
-            
+
         } while (!valido);
         return resultado;
     }
-    
+
     public static boolean validarChar(String text) {
         if (text.length() != 1)
             return false;
-        char c  = text.charAt(0);
+        char c = text.charAt(0);
         return c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
     }
 

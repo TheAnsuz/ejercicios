@@ -1,10 +1,10 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package me.ansuz.amrv.t6.geometria;
+*/
+package org.amrv.estudios.ejerciciosmaven.t6.geometria;
 
-import me.ansuz.amrv.t5.Punto;
+import org.amrv.estudios.ejerciciosmaven.t5.Punto;
 
 /**
  *

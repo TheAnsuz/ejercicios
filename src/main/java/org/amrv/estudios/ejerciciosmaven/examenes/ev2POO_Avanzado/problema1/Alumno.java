@@ -1,4 +1,4 @@
-package me.ansuz.amrv.examenes.ev2POO_Avanzado.problema1;
+package org.amrv.estudios.ejerciciosmaven.examenes.ev2POO_Avanzado.problema1;
 
 import java.util.ArrayList;
 import java.util.List;

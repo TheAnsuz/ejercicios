@@ -1,4 +1,5 @@
-package me.ansuz.amrv.bucles;
+package org.amrv.estudios.ejerciciosmaven.bucles;
+
 
 public class PotenciasDeDos {
 

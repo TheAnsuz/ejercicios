@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package me.ansuz.amrv.t5.Ascensor;
+package org.amrv.estudios.ejerciciosmaven.t5.Ascensor;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import me.ansuz.amrv.t5.Persona;
+import org.amrv.estudios.ejerciciosmaven.t5.Persona;
 
 /**
  *

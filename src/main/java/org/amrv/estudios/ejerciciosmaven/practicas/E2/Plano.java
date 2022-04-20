@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package me.ansuz.amrv.practicas.E2;
+package org.amrv.estudios.ejerciciosmaven.practicas.E2;
 
 import java.util.Arrays;
 

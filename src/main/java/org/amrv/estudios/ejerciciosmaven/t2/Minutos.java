@@ -1,4 +1,4 @@
-package me.ansuz.amrv.t2;
+package org.amrv.estudios.ejerciciosmaven.t2;
 
 import java.util.Scanner;
 

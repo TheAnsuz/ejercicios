@@ -1,4 +1,4 @@
-package me.ansuz.amrv.practicas.E1;
+package org.amrv.estudios.ejerciciosmaven.practicas.E1;
 
 /**
  *

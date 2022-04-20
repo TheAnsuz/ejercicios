@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package me.ansuz.amrv.bucles;
+package org.amrv.estudios.ejerciciosmaven.bucles;
+
 
 import java.util.Scanner;
 

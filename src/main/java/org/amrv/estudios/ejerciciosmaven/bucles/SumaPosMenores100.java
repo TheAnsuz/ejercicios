@@ -1,11 +1,13 @@
-package me.ansuz.amrv.bucles;
+package org.amrv.estudios.ejerciciosmaven.bucles;
+
+
 
 public class SumaPosMenores100 {
 
 	/*
 	 * usando en todos los ejercicios un bucle for 
 	 * 
-	 * 1. programa que sume los números
+	 * 1. programa que sume los nï¿½meros
 	 * positivos menores o iguales que 100.
 	 */
 	public static void main(String[] args) {

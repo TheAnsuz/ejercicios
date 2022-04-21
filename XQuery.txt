@@ -108,3 +108,21 @@ return update value $sal with $sal+200
 for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=10]
 let $sal:=$em/SALARIO/text()
 return update value $em/SALARIO with $sal+200
+
+update delete //zona[codzona=50]
+
+Otro ejemplo:
+
+for $dep in /zonas/zona/cod_zona
+return 
+update delete $dep
+
+update rename /EMPLEADOS/EMP_ROW as 'fila_emple'
+
+====================================================
+for $em in /EMPLEADOS/EMP_ROW[DEPT_NO=20]
+let $sal:=$em/SALARIO
+return update insert <nuevosal>{$sal*1.10}</nuevosal> into $em
+====================================================
+update delete /EMPLEADOS/EMP_ROW[DEPT_NO=20]/nuevosal
+====================================================

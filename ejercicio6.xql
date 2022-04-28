@@ -1,11 +1,15 @@
 (: Añade un empleado al departamento que ocupa la posición 2. Los datos son el salario 
 2340, el puesto Técnico, y nombre Pedro Fraile:)
 
-update insert <EMP_ROW>
-	
-</EMP_ROW>
-into
-/EMPLEADOS/
+for $depart in //DEP_ROW[2]/DEPT_NO
+return
+update insert
+<EMP_ROW>
+<SALARIO>2340</SALARIO>
+<OFICIO>TECNICO</OFICIO>
+<APELLIDO>PEDRO FRAILE</APELLIDO>
+<DEPT_NO>{data($depart)}</DEPT_NO></EMP_ROW>
+into /EMPLEAD
 ;
 (: El empleado 7902 ha causado baja en la empresa, sustitúyelo por el siguiente:
  <EMP_ROW>

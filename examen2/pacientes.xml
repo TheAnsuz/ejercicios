@@ -1,0 +1,50 @@
+<pacientes>
+	<paciente id="1">
+		<edad>12</edad>
+		<nombre>Marco Antonio</nombre>
+		<vacuna>1</vacuna>
+		<ciudad>Valladolid</ciudad>
+	</paciente>
+	<paciente id="2">
+		<edad>15</edad>
+		<nombre>César Augusto</nombre>
+		<vacuna>2</vacuna>
+		<ciudad>Burgos</ciudad>
+	</paciente>
+	<paciente id="3">
+		<edad>22</edad>
+		<nombre>Rómulo</nombre>
+		<vacuna>2</vacuna>
+		<ciudad>Valladolid</ciudad>
+	</paciente>
+	<paciente id="4">
+		<edad>40</edad>
+		<nombre>Charlie</nombre>
+		<vacuna>2</vacuna>
+		<ciudad>Burgos</ciudad>
+	</paciente>
+	<paciente id="5">
+		<edad>50</edad>
+		<nombre>Ronaldo</nombre>
+		<vacuna>4</vacuna>
+		<ciudad>Valladolid</ciudad>
+	</paciente>
+		<paciente id="6">
+		<edad>40</edad>
+		<nombre>Maxi Rodriguez</nombre>
+		<vacuna>2</vacuna>
+		<ciudad>Zamora</ciudad>
+	</paciente>
+	<paciente id="7">
+		<edad>50</edad>
+		<nombre>Santiago Rodriguez</nombre>
+		<vacuna>4</vacuna>
+		<ciudad>Burgos</ciudad>
+	</paciente>
+	<paciente id="8">
+		<edad>66</edad>
+		<nombre>Ramiro Melaspiro</nombre>
+		<vacuna>3</vacuna>
+		<ciudad>Salamanca</ciudad>
+	</paciente>	
+</pacientes>

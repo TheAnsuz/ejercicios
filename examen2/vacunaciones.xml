@@ -1,0 +1,47 @@
+<vacunacion>
+    <vacuna id="1">
+        <nombre>Pfizer</nombre>
+        <precio dosis="Doble" moneda="EUR">12</precio>
+        <unidades>2000</unidades>
+        <comienzo>20180101</comienzo>
+        <fin>20180401</fin>
+        <responsable>Manuela Gómez</responsable>
+        <box>3</box>
+    </vacuna>
+    <vacuna id="2">
+        <nombre>Moderna</nombre>
+        <precio dosis="Doble" moneda="EUR">14</precio>
+        <unidades>1500</unidades>
+        <comienzo>20210401</comienzo>
+        <fin>20210801</fin>
+        <responsable>Eustaquio Gómez</responsable>
+        <box>2</box>
+    </vacuna>
+    <vacuna id="3">
+        <nombre>Astra Zéneca</nombre>
+        <precio dosis="Doble" moneda="EUR">2</precio>
+        <unidades>5500</unidades>
+        <comienzo>20210801</comienzo>
+        <fin>20211201</fin>
+        <responsable>Manuela Gómez</responsable>
+        <box>1</box>
+    </vacuna>
+    <vacuna id="4">
+        <nombre>Jansen</nombre>
+        <precio dosis="Simple" moneda="EUR">7</precio>
+        <unidades>1000</unidades>
+        <comienzo>20210801</comienzo>
+        <fin>20211201</fin>
+        <responsable>Ter Spiegel</responsable>
+        <box>3</box>
+    </vacuna>
+    <vacuna id="5">
+        <nombre>Curevac</nombre>
+        <precio dosis="Doble" moneda="EUR">10</precio>
+        <unidades>500</unidades>
+        <comienzo>20211201</comienzo>
+        <fin>20220101</fin>
+        <responsable>Toni Klose</responsable>
+        <box>3</box>
+    </vacuna>
+</vacunacion>

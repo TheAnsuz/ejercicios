@@ -25,3 +25,10 @@ return update insert <media_pacientes>{$media}</media_pacientes> into $vacuna
 ;
 (:Elimina todas las vacunas cuya fecha de fin llega al año 2022:)
 for $vacunas in //vacunacion/vacuna
+;
+
+(:Incrementar el numero de vacunas un 10%:)
+for $vacuna in //vacunacion/vacuna
+let $cantidad:=$vacuna/unidades
+return update value $vacuna/unidades with $cantidad*1.1
+;

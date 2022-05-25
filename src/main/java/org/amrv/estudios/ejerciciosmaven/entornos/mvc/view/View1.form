@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="Fiebre" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Tos" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Diarrea" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Dolor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Olfato" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="143" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="272" max="-2" attributes="0"/>
+              <Component id="Enviar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="buttonMostrar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Fiebre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Tos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Diarrea" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Dolor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Olfato" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Enviar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonMostrar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JCheckBox" name="Fiebre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fiebre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Tos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Diarrea">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Diarrea"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Dolor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dolor Muscular"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="Olfato">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="P&#xe9;rdida Olfato"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Enviar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enviar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonMostrar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

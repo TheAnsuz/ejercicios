@@ -14,5 +14,6 @@ El contenido esta dividido en ramificaciones segun el campo al que pertenezcan, 
 + [Ejercicios de programacion](https://github.com/TheAnsuz/ejercicios/tree/java)
 + [Ejercicios de sql](https://github.com/TheAnsuz/ejercicios/tree/sql)
 + [Ejercicios de xml](https://github.com/TheAnsuz/ejercicios/tree/xml)
++ [Ejercicios de js](https://github.com/TheAnsuz/ejercicios/tree/js)
 
 *Puede que no este todo el contenido ya que lo de subir los ejercicios a un repositorio solo lo hago cuando tengo la posibilidad y no empece a hacerlo hasta el segundo trimestre*

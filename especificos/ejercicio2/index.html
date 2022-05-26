@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" href="https://ansuz-amrv.glitch.me/res/astley.css">
+    <title>Colorear</title>
+
+    <script defer>
+        /*
+        Ejercicio 2. Colorear mediante javascript el fondo de un párrafo según donde esté el ratón. El 
+        párrafo sobre el que esté el ratón será de fondo blanco, si ese párrafo es par todos los demás 
+        párrafos de número par serán blancos también y el resto gris los impares. Si por el contrario el 
+        párrafo donde se sitúa el ratón es impar todos los párrafos impares serán blancos y el resto 
+        grises.
+        */
+        parrafos = document.getElementsByTagName("p");
+
+        for (var i = 0; i < parrafos.length; i++) {
+            parrafos[i].onmouseover = function() {
+                console.log("Enter");
+                parrafos[i].style.color = '#F00';
+            }
+            parrafos[i].onmouseleave = function() {
+                console.log("Exit");
+                parrafos[i].style.color = '#0F0';
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quis accusamus consequatur dolor est ipsa mollitia
+        ea? Nisi molestiae delectus molestias inventore. Sint ratione nulla magni tenetur eum totam suscipit cumque
+        omnis voluptas! Illo numquam omnis perspiciatis quod placeat earum ex, nulla totam itaque dolorum assumenda
+        dicta ut voluptatibus at veniam nobis? Placeat, quas repudiandae eveniet officia animi cumque, dolorum illum
+        molestiae dolore alias amet. Deleniti minus eveniet odit.</p>
+    <p>Voluptas corrupti animi officia maiores culpa repudiandae molestias perferendis aliquid! Harum suscipit rerum
+        quos quasi ducimus similique, cupiditate soluta dignissimos autem enim, blanditiis tempora nobis adipisci quae.
+        In inventore numquam rem expedita eveniet sequi sapiente optio, veniam suscipit doloremque ducimus excepturi
+        praesentium veritatis perferendis dicta omnis quaerat itaque ipsam assumenda, ab laudantium voluptatum deserunt
+        necessitatibus saepe? Fugiat suscipit aspernatur beatae, ratione adipisci provident, voluptatibus consectetur,
+        odio minima neque officiis.</p>
+    <p>Ratione, consequatur maxime laborum at earum eveniet cum quaerat omnis, porro nam possimus ea explicabo atque
+        minima deleniti incidunt, nisi optio debitis excepturi. Delectus sequi ut veniam voluptate quae illum quo amet
+        expedita cumque recusandae, aliquam necessitatibus. Voluptatibus saepe repellendus voluptatum modi
+        exercitationem beatae omnis distinctio quidem quasi officia, excepturi eos optio quaerat animi nesciunt
+        obcaecati! Nostrum ratione id explicabo illo quisquam quibusdam cumque corrupti provident. Repellendus, quaerat
+        consequatur.</p>
+    <p>Molestiae, quibusdam voluptatem eveniet tempora dolorem ex, ipsum a necessitatibus adipisci sequi repudiandae
+        officiis reprehenderit commodi animi consectetur exercitationem rerum doloribus laboriosam facilis nulla. Ullam
+        maxime placeat veniam! Porro ullam quidem voluptates at in nostrum error expedita similique dolore placeat
+        labore perferendis, quibusdam, consequatur voluptas voluptatum dolorum maiores mollitia, hic nulla! Voluptatum
+        nisi qui voluptate minus sit laudantium vitae quibusdam et quia, omnis consequuntur, quasi a corrupti
+        exercitationem laboriosam.</p>
+    <p>Odio, quas quae sit animi molestiae, laboriosam excepturi incidunt asperiores dolorum, voluptates sequi.
+        Voluptates nisi, saepe earum harum inventore quibusdam deleniti dolorem voluptatem a odit pariatur vitae, itaque
+        dolor ipsa quae nulla ullam. Impedit asperiores assumenda ad tenetur saepe beatae aperiam recusandae ducimus
+        rerum doloremque! Saepe expedita impedit odit quia omnis odio non itaque voluptate voluptas ex? Quaerat
+        perferendis exercitationem impedit delectus doloribus eligendi dolores quidem voluptate consequuntur voluptas.
+    </p>
+</body>
+
+</html>

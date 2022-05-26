@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>FIUUUM</title>
+
+</head>
+
+<body>
+    <img id="image" src="https://cdn.glitch.me/c16745e4-8470-4f0c-b507-f3ca23979223%2Froll.gif?v=1636540180591">
+    <script>
+        var img = document.getElementById("image");
+        var query = 0;
+        var rotation = 0;
+        setInterval(rotate,1);
+
+        img.style.position = 'absolute';
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            img.style.top = event.clientY - img.height / 2 + 'px';
+            img.style.left = event.clientX - img.width / 2 + 'px';
+
+        });
+
+        document.addEventListener('click', (event) => {
+            query += 360;
+        });
+
+        function rotate() {
+            image.style.transform = 'rotate(' + (-query) + 'deg)';
+            if (query > 0)
+                image.style.transform = 'rotate(' + query-- + 'deg)';
+        }
+
+
+    </script>
+</body>
+
+</html>

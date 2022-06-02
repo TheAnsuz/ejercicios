@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Formulario II</title>
+    <script>
+        window.onload = function () {
+            const inputs = document.getElementsByClassName("focusable");
+            const formulario = document.getElementById("forumlario");
+            const datos = {
+                nombre: function () { return document.getElementById("nombre").value; },
+                apellidos: function () { return document.getElementById("apellidos").value; },
+                correo: function () { return document.getElementById("correo").value; }
+            }
+
+
+            for (index = 0; index < inputs.length; index++) {
+
+                inputs[index].addEventListener('focusin', (event) => {
+                    event.target.style.backgroundColor = '#AA7777';
+                });
+
+                inputs[index].addEventListener('focusout', (event) => {
+                    event.target.style.backgroundColor = '#FFFFFF';
+                });
+            }
+
+            formulario.addEventListener('submit', (event) => {
+                document.getElementById("result").innerHTML = "Resultado";
+                document.getElementById("resultado_nombre").innerHTML = "Nombre: <b>" + datos.nombre() + " </b>";
+                document.getElementById("resultado_apellido").innerHTML = "Apellidos: <b>" + datos.apellidos() + " </b>";
+                document.getElementById("resultado_correo").innerHTML = "Correo: <b>" + datos.correo() + " </b>";
+                event.preventDefault();
+                document.body.style.backgroundImage = "url('https://cdn.glitch.me/c16745e4-8470-4f0c-b507-f3ca23979223%2Froll.gif?v=1636540180591')";
+            });
+
+
+        }
+    </script>
+</head>
+
+<body style="background-size: cover;">
+    <form id="forumlario">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" class="focusable" required>
+        <br><br>
+        <label for="apellido">Apellidos</label>
+        <input type="text" id="apellidos" name="apellido" class="focusable" required>
+        <br><br>
+        <label for="correo">Correo electronico</label>
+        <input type="email" name="correo" id="correo" class="focusable" required>
+        <br><br>
+        <input type="submit" value="Enviar consulta" id="enviar">
+    </form>
+    <br>
+    <label id="result"></label>
+    <br>
+    <label id="resultado_nombre"></label>
+    <br>
+    <label id="resultado_apellido"></label>
+    <br>
+    <label id="resultado_correo"></label>
+</body>
+
+</html>

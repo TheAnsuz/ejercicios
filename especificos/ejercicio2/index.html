@@ -5,10 +5,10 @@
     <meta charser='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel="stylesheet" href="https://ansuz-amrv.glitch.me/res/astley.css">
+    <!--link rel="stylesheet" href="https://ansuz-amrv.glitch.me/res/astley.css"-->
     <title>Colorear</title>
 
-    <script defer>
+    <script>
         /*
         Ejercicio 2. Colorear mediante javascript el fondo de un párrafo según donde esté el ratón. El 
         párrafo sobre el que esté el ratón será de fondo blanco, si ese párrafo es par todos los demás 
@@ -16,16 +16,41 @@
         párrafo donde se sitúa el ratón es impar todos los párrafos impares serán blancos y el resto 
         grises.
         */
-        parrafos = document.getElementsByTagName("p");
+        var parrafos = document.getElementsByTagName("p");
 
-        for (var i = 0; i < parrafos.length; i++) {
-            parrafos[i].onmouseover = function() {
-                console.log("Enter");
-                parrafos[i].style.color = '#F00';
+        window.onload = function () {
+            parrafos = document.getElementsByTagName("p");
+            for (i = 0; i < parrafos.length; i++) {
+                parrafos[i].index = i;
+
+                parrafos[i].onmouseenter = function () {
+                    this.style.backgroundColor = '#FFF';
+                    if (this.index % 2 == 0) {
+                        changePares('#FFF');
+                        changeInpares('#999');
+                    } else {
+                        changeInpares('#FFF');
+                        changePares('#999');
+                    }
+                }
+                parrafos[i].onmouseleave = function () {
+                    changeInpares('#FFF');
+                    changePares('#FFF');
+                }
             }
-            parrafos[i].onmouseleave = function() {
-                console.log("Exit");
-                parrafos[i].style.color = '#0F0';
+        }
+
+        function changePares(color) {
+            for (i = 0; i < parrafos.length; i++) {
+                if (parrafos[i].index % 2 == 0)
+                    parrafos[i].style.backgroundColor = color;
+            }
+        }
+
+        function changeInpares(color) {
+            for (i = 0; i < parrafos.length; i++) {
+                if (parrafos[i].index % 2 != 0)
+                    parrafos[i].style.backgroundColor = color;
             }
         }
 

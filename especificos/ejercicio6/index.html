@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Input</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <form style="text-align: center;">
+        <label for="filas">Numero de filas</label>
+        <input type="number" name="filas" min="1" max="100" value="4" id="filas"/>
+        <br><br>
+        <label for="columnas">Numero de columnas</label>
+        <input type="number" name="columnas" min="1" max="100" value="4" id="columnas"/>
+        <br><br>
+        <input type="button" name="done" value="Generar tabla" id="submit">
+    </form>
+    <div id="espacioTabla" style="text-align: center;">
+    </div>
+</body>
+
+</html>

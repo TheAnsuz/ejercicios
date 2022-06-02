@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" href="https://ansuz-amrv.glitch.me/res/astley.css">
+    <title>Desplegable</title>
+    <script>
+
+        window.onload = function () {
+            const selector = document.getElementById("selector");
+            const display = document.getElementById("display");
+
+            selector.onchange = function () {
+                display.innerHTML = selector.options[selector.selectedIndex].innerHTML;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <select id="selector">
+        <option selected>Texto 1</option>
+        <option>Texto 2</option>
+        <option>Texto 3</option>
+        <option>Texto 4</option>
+        <option>Texto 5</option>
+        <option>Texto 6</option>
+    </select>
+    <h1 id="display">Texto 1</h1>
+</body>
+
+</html>

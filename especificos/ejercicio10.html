@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Coordenadas</title>
+</head>
+<style>
+    input {
+        width: 70px;
+        visibility: hidden;
+    }
+</style>
+<script>
+    window.onload = function () {
+        const xField = document.getElementById("oldX");
+        const yField = document.getElementById("oldY");
+        const movField = document.getElementById("mov");
+
+        document.getElementsByTagName
+
+        document.getElementById("mover").onclick = function () {
+            document.body.style.backgroundImage = "url('https://cdn.glitch.me/c16745e4-8470-4f0c-b507-f3ca23979223%2Froll.gif?v=1636540180591')";
+            const mov = parseFloat(movField.value);
+
+            xField.value = parseFloat(xField.value) + mov;
+            yField.value = parseFloat(yField.value) + mov;
+        }
+
+    }
+</script>
+
+<body>
+    <form action="#">
+        <label>Coordenadas de inicio </label><input type="number" name="oldX" id="oldX" value='0'><label>x,
+        </label><input type="number" name="oldY" id="oldY" value='0'><label>y</label>
+        <br><br>
+
+        <label>Mover </label><input type="number" name="mov" id="mov" value='0'>
+        <input type="button" id="mover" value="Mover">
+    </form>
+</body>
+
+</html>

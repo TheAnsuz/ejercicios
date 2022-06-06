@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charser='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Formulario muy grande</title>
+</head>
+<script>
+    window.onload = function () {
+        const elements = document.getElementsByTagName("input");
+        const enviar = document.getElementById("submit");
+        var display = document.getElementById("display");
+
+        for (i = 0; i < elements.length; i++) {
+            if (elements[i].type != "text")
+                continue;
+
+            elements[i].index = i;
+            elements[i].defaultColor = elements[i].style.backgroundClip;
+            elements[i].addEventListener('focusin', (event) => {
+                event.target.style.backgroundColor = '#FC7';
+            });
+
+            elements[i].addEventListener('focusout', (event) => {
+                event.target.style.backgroundColor = event.target.defaultColor;
+            });
+        }
+
+        enviar.onclick = function () {
+            var text = "";
+            for (i = 0; i < elements.length; i++) {
+                if (elements[i].type != "text")
+                    continue;
+                if (elements[i].value != '')
+                    text += elements[i].value + "<br>";
+            }
+            display.innerHTML = text;
+        }
+
+
+    }
+</script>
+
+<body>
+    <form action="#">Texto 001 <input type="text"><br>Texto 002 <input type="text"><br>Texto 003 <input
+            type="text"><br>Texto 004 <input type="text"><br>Texto 005 <input type="text"><br>Texto 006 <input
+            type="text"><br>Texto 007 <input type="text"><br>Texto 008 <input type="text"><br>Texto 009 <input
+            type="text"><br>Texto 010 <input type="text"><br>Texto 011 <input type="text"><br>Texto 012 <input
+            type="text"><br>Texto 013 <input type="text"><br>Texto 014 <input type="text"><br>Texto 015 <input
+            type="text"><br>Texto 016 <input type="text"><br>Texto 017 <input type="text"><br>Texto 018 <input
+            type="text"><br>Texto 019 <input type="text"><br>Texto 020 <input type="text"><br>Texto 021 <input
+            type="text"><br>Texto 022 <input type="text"><br>Texto 023 <input type="text"><br>Texto 024 <input
+            type="text"><br>Texto 025 <input type="text"><br>Texto 026 <input type="text"><br>Texto 027 <input
+            type="text"><br>Texto 028 <input type="text"><br>Texto 029 <input type="text"><br>Texto 030 <input
+            type="text"><br>Texto 031 <input type="text"><br>Texto 032 <input type="text"><br>Texto 033 <input
+            type="text"><br>Texto 034 <input type="text"><br>Texto 035 <input type="text"><br>Texto 036 <input
+            type="text"><br>Texto 037 <input type="text"><br>Texto 038 <input type="text"><br>Texto 039 <input
+            type="text"><br>Texto 040 <input type="text"><br>Texto 041 <input type="text"><br>Texto 042 <input
+            type="text"><br>Texto 043 <input type="text"><br>Texto 044 <input type="text"><br>Texto 045 <input
+            type="text"><br>Texto 046 <input type="text"><br>Texto 047 <input type="text"><br>Texto 048 <input
+            type="text"><br>Texto 049 <input type="text"><br>Texto 050 <input type="text"><br>Texto 051 <input
+            type="text"><br>Texto 052 <input type="text"><br>Texto 053 <input type="text"><br>Texto 054 <input
+            type="text"><br>Texto 055 <input type="text"><br>Texto 056 <input type="text"><br>Texto 057 <input
+            type="text"><br>Texto 058 <input type="text"><br>Texto 059 <input type="text"><br>Texto 060 <input
+            type="text"><br>Texto 061 <input type="text"><br>Texto 062 <input type="text"><br>Texto 063 <input
+            type="text"><br>Texto 064 <input type="text"><br>Texto 065 <input type="text"><br>Texto 066 <input
+            type="text"><br>Texto 067 <input type="text"><br>Texto 068 <input type="text"><br>Texto 069 <input
+            type="text"><br>Texto 070 <input type="text"><br>Texto 071 <input type="text"><br>Texto 072 <input
+            type="text"><br>Texto 073 <input type="text"><br>Texto 074 <input type="text"><br>Texto 075 <input
+            type="text"><br>Texto 076 <input type="text"><br>Texto 077 <input type="text"><br>Texto 078 <input
+            type="text"><br>Texto 079 <input type="text"><br>Texto 080 <input type="text"><br>Texto 081 <input
+            type="text"><br>Texto 082 <input type="text"><br>Texto 083 <input type="text"><br>Texto 084 <input
+            type="text"><br>Texto 085 <input type="text"><br>Texto 086 <input type="text"><br>Texto 087 <input
+            type="text"><br>Texto 088 <input type="text"><br>Texto 089 <input type="text"><br>Texto 090 <input
+            type="text"><br>Texto 091 <input type="text"><br>Texto 092 <input type="text"><br>Texto 093 <input
+            type="text"><br>Texto 094 <input type="text"><br>Texto 095 <input type="text"><br>Texto 096 <input
+            type="text"><br>Texto 097 <input type="text"><br>Texto 098 <input type="text"><br>Texto 099 <input
+            type="text"><br>Texto 100 <input type="text"><br><br>
+        <input type="button" id="submit" value="Enviar">
+    </form>
+    <p id="display"></p>
+</body>
+
+</html>
